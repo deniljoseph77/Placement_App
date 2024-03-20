@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:placement_app/global_widget/textformfield/mytextformfiled.dart';
 import 'package:placement_app/presentation/common/login_screen/view/login_screen.dart';
+import 'package:placement_app/presentation/common/signup_screen/controller/signup_controller.dart';
+import 'package:provider/provider.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -56,6 +58,17 @@ class _SignupScreenState extends State<SignupScreen> {
             SizedBox(
               height: 20,
             ),
+            Consumer<SignupController>(builder: (context, signupController, _) {
+              return DropdownButton<String>(
+                  padding: EdgeInsets.all(10),
+                  isExpanded: true,
+                  value: signupController.moduleSelected,
+                  hint: Text("Select Module"),
+                  items: dropdownItems,
+                  onChanged: (String? selectedModule) {
+                    signupController.setModule(selectedModule!);
+                  });
+            }),
             ElevatedButton(onPressed: () {}, child: Text("Register Here")),
             SizedBox(
               height: 8,
@@ -82,4 +95,12 @@ class _SignupScreenState extends State<SignupScreen> {
       ),
     );
   }
+}
+
+List<DropdownMenuItem<String>> get dropdownItems {
+  List<DropdownMenuItem<String>> menuItems = [
+    const DropdownMenuItem(value: "Company", child: Text("Company")),
+    const DropdownMenuItem(value: "Student", child: Text("Student"))
+  ];
+  return menuItems;
 }
