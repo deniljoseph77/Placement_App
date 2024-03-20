@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:placement_app/presentation/common/login_screen/controller/login_controller.dart';
 import 'package:placement_app/presentation/common/signup_screen/view/signup_screen.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: login_screen(),
-    debugShowCheckedModeBanner: false,
-  ));
-}
-
-class login_screen extends StatefulWidget {
-  const login_screen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<login_screen> createState() => _login_screenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _login_screenState extends State<login_screen> {
-  var uname_cntrl = TextEditingController();
-  var password_cntrl = TextEditingController();
-  bool password = true;
+class _LoginScreenState extends State<LoginScreen> {
+  var usernameController = TextEditingController();
+  var passwordController = TextEditingController();
+  bool visibility = false;
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +24,7 @@ class _login_screenState extends State<login_screen> {
           children: [
             Text(
               "Login Here!",
-              style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF568896)),
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Color(0xFF568896)),
             ),
 
             SizedBox(
@@ -42,7 +34,7 @@ class _login_screenState extends State<login_screen> {
             Padding(
               padding: const EdgeInsets.all(11.0),
               child: TextFormField(
-                controller: uname_cntrl,
+                controller: usernameController,
                 decoration: InputDecoration(
                     prefixIcon: Icon(Icons.person),
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
@@ -55,45 +47,39 @@ class _login_screenState extends State<login_screen> {
             ),
             Padding(
               padding: const EdgeInsets.all(11.0),
-              child: TextFormField(
-                obscureText: password,
-                obscuringCharacter: '*',
-                controller: password_cntrl,
-                decoration: InputDecoration(
-                    prefixIcon: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            if (password == true) {
-                              password = false;
-                            } else {
-                              password = true;
-                            }
-                          });
-                        },
-                        icon: Icon(password == true
-                            ? Icons.visibility_off
-                            : Icons.visibility)),
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-                    hintText: 'Password',
-                    labelText: 'password'),
-              ),
+              child: Consumer<LoginController>(builder: (context, loginController, _) {
+                return TextFormField(
+                  obscureText: loginController.visibility,
+                  obscuringCharacter: '*',
+                  controller: passwordController,
+                  decoration: InputDecoration(
+                      prefixIcon: IconButton(
+                          onPressed: () {
+                            loginController.iconPressed();
+                          },
+                          icon: Icon(loginController.visibility == true ? Icons.visibility_off : Icons.visibility)),
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                      hintText: 'Password',
+                      labelText: 'password'),
+                );
+              }),
             ),
             SizedBox(
               height: 20,
             ),
-            ElevatedButton(onPressed: () {}, child: Text("Login")),SizedBox(height: 9,),  TextButton(
-              onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupScreen()));},
+            ElevatedButton(onPressed: () {}, child: Text("Login")),
+            SizedBox(
+              height: 9,
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SignupScreen()));
+              },
               child: RichText(
-                  text: TextSpan(
-                      style: TextStyle(color: Colors.black, fontSize: 16),
-                      children: [
-                        TextSpan(text: "Dont have an account?  "),
-                        TextSpan(
-                            text: "signup",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF568896)))
-                      ])),
+                  text: TextSpan(style: TextStyle(color: Colors.black, fontSize: 16), children: [
+                TextSpan(text: "Dont have an account?  "),
+                TextSpan(text: "signup", style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF568896)))
+              ])),
             )
           ],
         ),
