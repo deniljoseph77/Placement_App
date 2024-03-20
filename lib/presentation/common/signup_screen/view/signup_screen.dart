@@ -45,7 +45,6 @@ class _SignupScreenState extends State<SignupScreen> {
               hintText: 'Password',
               labelText: "password",
             ),
-
             SizedBox(
               height: 20,
             ),
@@ -57,19 +56,26 @@ class _SignupScreenState extends State<SignupScreen> {
             SizedBox(
               height: 20,
             ),
-            ElevatedButton(onPressed: () {}, child: Text("Register Here")), SizedBox(height: 8,),TextButton(
-              onPressed: () { Navigator.push(context, MaterialPageRoute(builder: (context)=>login_screen())); },
+            ElevatedButton(onPressed: () {}, child: Text("Register Here")),
+            SizedBox(
+              height: 8,
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => login_screen()));
+              },
               child: RichText(
                   text: TextSpan(
                       style: TextStyle(color: Colors.black, fontSize: 16),
                       children: [
-                        TextSpan(text: "Already registered?  "),
-                        TextSpan(
-                            text: "Login",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF568896)))
-                      ])),
+                    TextSpan(text: "Already registered?  "),
+                    TextSpan(
+                        text: "Login",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF568896)))
+                  ])),
             ),
           ],
         ),
