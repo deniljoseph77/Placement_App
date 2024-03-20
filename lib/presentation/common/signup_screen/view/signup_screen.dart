@@ -39,7 +39,6 @@ class _SignupScreenState extends State<SignupScreen> {
               hintText: 'Email',
               labelText: "email",
             ),
-
             SizedBox(
               height: 20,
             ),
@@ -76,13 +75,20 @@ class _SignupScreenState extends State<SignupScreen> {
             ),
             TextButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()));
               },
               child: RichText(
-                  text: TextSpan(style: TextStyle(color: Colors.black, fontSize: 16), children: [
-                TextSpan(text: "Already registered?  "),
-                TextSpan(text: "Login", style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF568896)))
-              ])),
+                  text: TextSpan(
+                      style: TextStyle(color: Colors.black, fontSize: 16),
+                      children: [
+                    TextSpan(text: "Already registered?  "),
+                    TextSpan(
+                        text: "Login",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF568896)))
+                  ])),
             ),
           ],
         ),

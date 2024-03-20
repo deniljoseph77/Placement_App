@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ElevatedButton(
                 onPressed: () {
                   if (usernameController.text.trim() == "student") {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Home_Screen_view()));
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreenView()));
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("failed")));
                   }
