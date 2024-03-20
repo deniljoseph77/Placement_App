@@ -20,7 +20,7 @@ class _module_screenState extends State<module_screen> {
           children: [
             Text("Ports",style: TextStyle(color: Color(0xFF568896),fontSize: 28),),SizedBox(height: 15,),
             MaterialButton(
-              onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>login_screen()));},
+              onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));},
               child: Text(
                 "Student",
                 style: TextStyle(fontWeight: FontWeight.bold),
