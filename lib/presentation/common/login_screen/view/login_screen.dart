@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:placement_app/presentation/common/signup_screen/view/signup_screen.dart';
+ import 'package:flutter/material.dart';
+
+import '../../signup_screen/view/signup_screen.dart';
 
 void main() {
   runApp(MaterialApp(
