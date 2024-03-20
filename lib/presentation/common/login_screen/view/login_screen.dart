@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:placement_app/presentation/common/login_screen/controller/login_controller.dart';
 import 'package:placement_app/presentation/common/signup_screen/view/signup_screen.dart';
+import 'package:placement_app/presentation/students/home_screen/view/home_screen_view.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -67,7 +68,15 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: 20,
             ),
-            ElevatedButton(onPressed: () {}, child: Text("Login")),
+            ElevatedButton(
+                onPressed: () {
+                  if (usernameController.text.trim() == "student") {
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Home_Screen_view()));
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("failed")));
+                  }
+                },
+                child: Text("Login")),
             SizedBox(
               height: 9,
             ),
