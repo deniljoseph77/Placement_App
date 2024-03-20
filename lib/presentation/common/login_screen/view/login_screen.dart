@@ -1,14 +1,8 @@
-<<<<<<< HEAD
- import 'package:flutter/material.dart';
-
-import '../../signup_screen/view/signup_screen.dart';
-=======
 import 'package:flutter/material.dart';
 import 'package:placement_app/presentation/common/login_screen/controller/login_controller.dart';
 import 'package:placement_app/presentation/common/signup_screen/view/signup_screen.dart';
 import 'package:placement_app/presentation/students/home_screen/view/home_screen_view.dart';
 import 'package:provider/provider.dart';
->>>>>>> 259d84307902ba973cd39f15c2a206bfb8bb4535
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
