@@ -11,7 +11,7 @@ class HomeScreenView extends StatefulWidget {
 }
 
 class _HomeScreenViewState extends State<HomeScreenView> {
-  var lists = ["Apply and Search or Job", "View Materials", "Start A Quiz"];
+  var lists = ["Apply  for Job", "View Materials", "Start A Quiz"];
 
   @override
   Widget build(BuildContext context) {
