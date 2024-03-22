@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:placement_app/presentation/students/profile_Screen/view/profile_Screen_view.dart';
 
-
+import '../../../common/login_screen/view/login_screen.dart';
 
 class HomeScreenView extends StatefulWidget {
   const HomeScreenView({super.key});
@@ -16,18 +16,18 @@ class _HomeScreenViewState extends State<HomeScreenView> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 19,bottom: 19),
+      padding: const EdgeInsets.only(top: 40),
       child: Scaffold(
         appBar: AppBar(
           title: Text("Student Dashboard"),
-          backgroundColor: Colors.blueGrey,
+          backgroundColor: Colors.white,
         ),
         drawer: Drawer(
           backgroundColor: Colors.white,
           child: ListView(
             children: [
               UserAccountsDrawerHeader(
-                  decoration: BoxDecoration(color: Colors.white24),
+                  decoration: BoxDecoration(color: Colors.blueGrey),
                   currentAccountPicture: CircleAvatar(
                     child: Icon(Icons.person),
                     backgroundColor: Colors.grey,
@@ -44,10 +44,7 @@ class _HomeScreenViewState extends State<HomeScreenView> {
                 leading: Icon(Icons.person),
                 title: Text("profile"),
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ProfileScreenView()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileScreenView()));
                 },
               ),
               // ListTile(
@@ -61,25 +58,31 @@ class _HomeScreenViewState extends State<HomeScreenView> {
               ),
               ListTile(
                 leading: Icon(Icons.logout),
-                title: Text("logout"),
+                title: Text("Logout"),
+                onTap: () {
+                  Navigator.pushAndRemoveUntil(
+                      context, MaterialPageRoute(builder: (context) => LoginScreen()), (route) => false);
+                },
               ),
             ],
           ),
         ),
         body: Center(
           child: ListView.builder(
-            itemCount: lists.length,
+              itemCount: lists.length,
               itemBuilder: (context, index) => Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(decoration:BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),color: Colors.blueGrey
-                ) ,
-                       width: 300,
-                       height: 180,
-
-                      child: Center(child: Text(lists[index],style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),)),
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.blueGrey),
+                      width: 300,
+                      height: 180,
+                      child: Center(
+                          child: Text(
+                        lists[index],
+                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                      )),
                     ),
-              )),
+                  )),
         ),
       ),
     );

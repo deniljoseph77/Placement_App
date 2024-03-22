@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Postjob_Screen extends StatefulWidget {
-  const Postjob_Screen({super.key});
+class PostJobScreen extends StatefulWidget {
+  const PostJobScreen({super.key});
 
   @override
-  State<Postjob_Screen> createState() => _Postjob_ScreenState();
+  State<PostJobScreen> createState() => _PostJobScreenState();
 }
 
-class _Postjob_ScreenState extends State<Postjob_Screen> {
+class _PostJobScreenState extends State<PostJobScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
