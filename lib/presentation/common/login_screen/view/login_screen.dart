@@ -23,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -31,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
               "Login Here!",
               style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Color(0xFF568896)),
             ),
-
+        
             SizedBox(
               height: 30,
             ),
@@ -80,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => CompanyHomeScreen()));
                   }else if(usernameController.text.trim()=="tpo"){
                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>tpohomescreen()));
-
+        
                   }
                     else {
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("failed")));
