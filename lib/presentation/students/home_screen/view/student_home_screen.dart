@@ -34,7 +34,9 @@ class _MaterialScreenState extends State<MaterialScreen> {
     return Padding(
       padding: const EdgeInsets.only(top: 20),
       child: Scaffold(
-        appBar: StudentAppBar(title: "Materials" ,),
+        appBar: StudentAppBar(
+          title: "Materials",
+        ),
         drawer: Drawer(
           backgroundColor: Colors.white,
           child: ListView(
@@ -70,9 +72,10 @@ class _MaterialScreenState extends State<MaterialScreen> {
               // ),
               ListTile(
                 leading: Icon(Icons.library_books_rounded),
-                title: Text("Academic Details",style: TextStyle(
-
-                ),),
+                title: Text(
+                  "Academic Details",
+                  style: TextStyle(),
+                ),
               ),
               ListTile(
                 leading: Icon(Icons.file_copy),
@@ -107,15 +110,15 @@ class _MaterialScreenState extends State<MaterialScreen> {
                         height: size.height * .18,
                         width: size.width * .1,
                         child: Card(
-                          color: ColorConstants.white,
+                          color: ColorTheme.white,
                           child: Padding(
-                            padding: const EdgeInsets.only(top: 25,left: 15),
+                            padding: const EdgeInsets.only(top: 25, left: 15),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
                                   chapters[index],
-                                  style: TextStyle(color: ColorConstants.grey),
+                                  style: TextStyle(color: ColorTheme.grey),
                                 ),
                                 SizedBox(
                                   height: 18,

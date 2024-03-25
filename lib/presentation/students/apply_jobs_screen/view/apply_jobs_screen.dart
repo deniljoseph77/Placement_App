@@ -61,11 +61,11 @@ class ApplyJobScreen extends StatelessWidget {
                         ),
                         Center(
                             child: MaterialButton(
-                                color: ColorConstants.primary,
+                                color: ColorTheme.primary,
                                 child: Text(
                                   "APPLY NOW",
                                   style: TextStyle(
-                                      color: ColorConstants.white,
+                                      color: ColorTheme.white,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 height: size.height * .08,
@@ -89,7 +89,7 @@ class ApplyJobScreen extends StatelessWidget {
                                                             fontWeight:
                                                                 FontWeight.bold,
                                                             color:
-                                                                ColorConstants
+                                                                ColorTheme
                                                                     .primary,
                                                             fontSize: 20))),
                                               ),
