@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:placement_app/core/constants/color_constants.dart';
+import 'package:placement_app/global_widget/student_appbar.dart';
 import 'package:placement_app/presentation/students/profile_Screen/view/profile_Screen_view.dart';
 
 import '../../../common/login_screen/view/login_screen.dart';
-
-void main() {
-  runApp(MaterialApp(
-    home: MaterialScreen(),
-  ));
-}
 
 class MaterialScreen extends StatefulWidget {
   const MaterialScreen({super.key});
@@ -39,10 +34,7 @@ class _MaterialScreenState extends State<MaterialScreen> {
     return Padding(
       padding: const EdgeInsets.only(top: 20),
       child: Scaffold(
-        appBar: AppBar(
-          title: Text("Student Dashboard"),
-          backgroundColor: Colors.white,
-        ),
+        appBar: StudentAppBar(title: "Materials" ,),
         drawer: Drawer(
           backgroundColor: Colors.white,
           child: ListView(
