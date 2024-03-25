@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:placement_app/presentation/common/login_screen/controller/login_controller.dart';
 import 'package:placement_app/presentation/common/signup_screen/view/signup_screen.dart';
+import 'package:placement_app/presentation/company/bottomnavigation/view/bottomnavigation_company.dart';
 import 'package:placement_app/presentation/company/home_screen/view/company_homescreen.dart';
 import 'package:placement_app/presentation/students/home_screen/view/student_home_screen.dart';
 import 'package:placement_app/presentation/tpo/tpohomescreen/view/tpohomescreen_view.dart';
@@ -77,7 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   if (usernameController.text.trim() == "student") {
                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreenView()));
                   } else if (usernameController.text.trim() == "company") {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => CompanyHomeScreen()));
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => bottomnavigation()));
                   }else if(usernameController.text.trim()=="tpo"){
                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>tpohomescreen()));
 
