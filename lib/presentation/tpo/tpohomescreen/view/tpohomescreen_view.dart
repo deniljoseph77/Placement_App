@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:placement_app/presentation/tpo/tpohomescreen/view/widget/tpo_user_card.dart';
 
 import '../../../common/login_screen/view/login_screen.dart';
 
@@ -31,41 +32,20 @@ class TPOHomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(18.0),
-          child: ListView(
-            children: [
-              InkWell(
-                onTap: () {
-
-                },
-                child: Container(
-                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.blueGrey),
-                    width: 300,
-                    height: 180,
-                    child: Center(
-                        child: Text(
-                          "Manage User",
-                          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 20),
-                        ))),
+      body: Padding(
+        padding: const EdgeInsets.all(18.0),
+        child: ListView(
+          children: [
+            InkWell(
+              onTap: () {},
+              child: TPOStudentCard(
+                fullName: 'Nitha Parveen',
+                phone: '98787576889',
+                email: 'nithaparveen@gmail.com',
+                username: 'nithaparveen',
               ),
-              SizedBox(
-                height: 18,
-              ),
-              InkWell(
-                child: Container(
-                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.blueGrey),
-                    width: 300,
-                    height: 180,
-                    child: Center(
-                        child: Text(
-                          "Add Material ",
-                          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 20),
-                        ))),
-              )
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );
