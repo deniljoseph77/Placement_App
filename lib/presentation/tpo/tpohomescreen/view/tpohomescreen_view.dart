@@ -9,7 +9,7 @@ class tpohomescreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Company Dashboard"),
+        title: Text("TPO"),
         elevation: 0,
         backgroundColor: Colors.white,
       ),
