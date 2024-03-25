@@ -4,6 +4,7 @@ import 'package:placement_app/presentation/common/signup_screen/controller/signu
 import 'package:placement_app/presentation/common/signup_screen/view/signup_screen.dart';
 import 'package:placement_app/presentation/company/bottomnavigation/view/controller/bottomcontroller.dart';
 import 'package:placement_app/presentation/students/bottom_navigation_screen/controller/bottom_navigation_controller.dart';
+import 'package:placement_app/presentation/tpo/bottom_navigation_screen/controller/bottom_navigation_controller.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -11,7 +12,8 @@ void main() {
     ChangeNotifierProvider(create: (context) => SignupController()),
     ChangeNotifierProvider(create: (context) => LoginController()),
     ChangeNotifierProvider(create: (context) => BottomNavigationController()),
-    ChangeNotifierProvider(create: (context) => bottomcontroller())
+    ChangeNotifierProvider(create: (context) => bottomcontroller()),
+    ChangeNotifierProvider(create: (context) => TPOBottomNavigationController())
   ], child: const MyApp()));
 }
 

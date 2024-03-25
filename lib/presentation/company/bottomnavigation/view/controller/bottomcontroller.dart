@@ -11,7 +11,7 @@ class bottomcontroller with ChangeNotifier{
     notifyListeners();
   }
   List<Widget>screens=[
-CompanyHomeScreen(),PostJobScreen(),tpohomescreen()
+CompanyHomeScreen(),PostJobScreen(),TPOHomeScreen()
   ];
 
 }

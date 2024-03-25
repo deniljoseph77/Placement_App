@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../common/login_screen/view/login_screen.dart';
 
-class tpohomescreen extends StatelessWidget {
-  const tpohomescreen({super.key});
+class TPOHomeScreen extends StatelessWidget {
+  const TPOHomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
