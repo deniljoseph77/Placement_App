@@ -22,7 +22,7 @@ class _JobsPostedScreenState extends State<JobsPostedScreen> {
           child: Column(
             children: [
               Container(
-                height: size.width * .3,
+                height: size.width * .31,
                 width: size.width * .9,
                 padding: EdgeInsets.only(left: 10, top: 10,bottom: 10),
                 decoration: BoxDecoration(

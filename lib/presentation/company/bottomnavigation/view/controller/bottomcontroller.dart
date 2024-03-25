@@ -3,7 +3,7 @@ import 'package:placement_app/presentation/company/home_screen/view/company_home
 import 'package:placement_app/presentation/company/jobs_posted/view/jobs_posted_screen.dart';
 import 'package:placement_app/presentation/company/postjob_screen/view/postjob_screen.dart';
 
-import 'package:placement_app/presentation/tpo/tpohomescreen/view/tpohomescreen_view.dart';
+
 
 class bottomcontroller with ChangeNotifier{
   int selectedindex=0;
@@ -12,7 +12,7 @@ class bottomcontroller with ChangeNotifier{
     notifyListeners();
   }
   List<Widget>screens=[
-CompanyHomeScreen(),PostJobScreen(),Jobs_posted_Screen()
+CompanyHomeScreen(),PostJobScreen(),JobsPostedScreen()
   ];
 
 }
