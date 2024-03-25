@@ -80,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   if (usernameController.text.trim() == "student") {
                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => BottomNavigationScreen()));
                   } else if (usernameController.text.trim() == "company") {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => bottomnavigation()));
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => CompanyBottomNavigationScreen()));
                   }else if(usernameController.text.trim()=="tpo"){
                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>TPOBottomNavigationScreen()));
 

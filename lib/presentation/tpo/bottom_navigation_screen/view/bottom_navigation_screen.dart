@@ -17,18 +17,31 @@ class TPOBottomNavigationScreen extends StatelessWidget {
         );
       }),
       bottomNavigationBar: Consumer<TPOBottomNavigationController>(builder: (context, controller, _) {
-        return BottomNavigationBar(
-            currentIndex: controller.currentIndex,
-            onTap: (index) {
-              controller.currentIndex = index;
-            },
-            type: BottomNavigationBarType.fixed,
-            unselectedItemColor: Colors.white,
-            selectedItemColor: Colors.blueGrey,
-            items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.person), label: "Manage User"),
-              BottomNavigationBarItem(icon: Icon(Icons.contact_page), label: "Manage Request"),
-            ]);
+        return Container(
+          padding: const EdgeInsets.all(10),
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), color: Colors.blueGrey),
+          child: BottomNavigationBar(
+              backgroundColor: Colors.blueGrey,
+              currentIndex: controller.currentIndex,
+              onTap: (index) {
+                controller.currentIndex = index;
+              },
+              selectedIconTheme: const IconThemeData(
+                color: Colors.white,
+                size: 25,
+              ),
+              unselectedIconTheme: const IconThemeData(
+                size: 25,
+              ),
+              unselectedItemColor: Colors.grey,
+              selectedItemColor: Colors.white,
+              showSelectedLabels: true,
+              showUnselectedLabels: false,
+              items: const [
+                BottomNavigationBarItem(icon: Icon(Icons.person), label: "Manage User"),
+                BottomNavigationBarItem(icon: Icon(Icons.contact_page), label: "Manage Request"),
+              ]),
+        );
       }),
     );
   }
