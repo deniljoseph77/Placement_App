@@ -26,16 +26,16 @@ class CompanyHomeScreen extends StatelessWidget {
                   title: Column(children: [
                     RichText(text: TextSpan(
                       children: [
-                        TextSpan(text: "Student name:")
+                        TextSpan(text: "Student name:",style:TextStyle(color: Colors.black))
                       ]
                     )),
                     RichText(text: TextSpan(
                         children: [
-                          TextSpan(text: "Date :")
+                          TextSpan(text: "Date :",style:TextStyle(color: Colors.black))
                         ]
                     )) , RichText(text: TextSpan(
                         children: [
-                          TextSpan(text: "Status:")
+                          TextSpan(text: "Status:",style:TextStyle(color: Colors.black))
                         ]
                     ))],),
                   subtitle: Center(
