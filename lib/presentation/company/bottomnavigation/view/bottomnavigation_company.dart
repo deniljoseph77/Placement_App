@@ -63,8 +63,8 @@ class _bottomnavigationState extends State<bottomnavigation> {
                     icon: Icon(Icons.post_add),
                     label: "Post Job"),
                 BottomNavigationBarItem(backgroundColor: Colors.blueGrey,
-                    icon: Icon(Icons.timer),
-                    label: "Time Schedule"),
+                    icon: Icon(Icons.person),
+                    label: "profile"),
 
               ]),
         ),
