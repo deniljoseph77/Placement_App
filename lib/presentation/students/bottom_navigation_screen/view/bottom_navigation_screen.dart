@@ -14,7 +14,7 @@ class BottomNavigationScreen extends StatelessWidget {
       body: Consumer<BottomNavigationController>(
         builder: (context,controller,_) {
           return IndexedStack(
-            children: [HomeScreenView(), ApplyJobScreen(), QuizScreen()],
+            children: [MaterialScreen(), ApplyJobScreen(), QuizScreen()],
             index: controller.currentIndex,
           );
         }
