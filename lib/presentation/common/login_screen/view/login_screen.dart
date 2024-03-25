@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:placement_app/presentation/common/login_screen/controller/login_controller.dart';
 import 'package:placement_app/presentation/common/signup_screen/view/signup_screen.dart';
 import 'package:placement_app/presentation/company/home_screen/view/company_homescreen.dart';
+import 'package:placement_app/presentation/students/bottom_navigation_screen/view/bottom_navigation_screen.dart';
 import 'package:placement_app/presentation/students/home_screen/view/student_home_screen.dart';
 import 'package:placement_app/presentation/tpo/tpohomescreen/view/tpohomescreen_view.dart';
 import 'package:provider/provider.dart';
@@ -75,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ElevatedButton(
                 onPressed: () {
                   if (usernameController.text.trim() == "student") {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreenView()));
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => BottomNavigationScreen()));
                   } else if (usernameController.text.trim() == "company") {
                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => CompanyHomeScreen()));
                   }else if(usernameController.text.trim()=="tpo"){
