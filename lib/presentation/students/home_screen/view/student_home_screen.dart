@@ -69,6 +69,16 @@ class _MaterialScreenState extends State<MaterialScreen> {
               //   onTap: () {},
               // ),
               ListTile(
+                leading: Icon(Icons.library_books_rounded),
+                title: Text("Academic Details",style: TextStyle(
+
+                ),),
+              ),
+              ListTile(
+                leading: Icon(Icons.file_copy),
+                title: Text("Project Details"),
+              ),
+              ListTile(
                 leading: Icon(Icons.settings),
                 title: Text("settings"),
               ),

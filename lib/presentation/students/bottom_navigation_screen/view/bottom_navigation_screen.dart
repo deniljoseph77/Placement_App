@@ -26,7 +26,9 @@ class BottomNavigationScreen extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(5.0),
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),color: ColorConstants.primary),
-            child: BottomNavigationBar(selectedIconTheme:IconThemeData(color: ColorConstants.white),elevation:0,backgroundColor: ColorConstants.primary,
+            child: BottomNavigationBar(
+                selectedIconTheme:IconThemeData(color: ColorConstants.white),elevation:0,
+                backgroundColor: ColorConstants.primary,
                 onTap: (index) {
                   controller.currentIndex = index;
                 },
