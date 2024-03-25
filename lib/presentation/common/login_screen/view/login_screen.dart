@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:placement_app/presentation/common/login_screen/controller/login_controller.dart';
-import 'package:placement_app/presentation/common/signup_screen/view/signup_screen.dart';
+import 'package:placement_app/presentation/common/registration/student/view/student_register_scrn.dart';
 import 'package:placement_app/presentation/company/home_screen/view/company_homescreen.dart';
 import 'package:placement_app/presentation/students/home_screen/view/student_home_screen.dart';
 import 'package:placement_app/presentation/tpo/tpohomescreen/view/tpohomescreen_view.dart';
@@ -19,7 +19,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   bool visibility = false;
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +28,10 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             Text(
               "Login Here!",
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Color(0xFF568896)),
+              style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF568896)),
             ),
 
             SizedBox(
@@ -42,7 +44,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 controller: usernameController,
                 decoration: InputDecoration(
                     prefixIcon: Icon(Icons.person),
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)),
                     hintText: 'username',
                     labelText: 'username'),
               ),
@@ -52,7 +55,8 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             Padding(
               padding: const EdgeInsets.all(11.0),
-              child: Consumer<LoginController>(builder: (context, loginController, _) {
+              child: Consumer<LoginController>(
+                  builder: (context, loginController, _) {
                 return TextFormField(
                   obscureText: loginController.visibility,
                   obscuringCharacter: '*',
@@ -62,8 +66,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () {
                             loginController.iconPressed();
                           },
-                          icon: Icon(loginController.visibility == true ? Icons.visibility_off : Icons.visibility)),
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                          icon: Icon(loginController.visibility == true
+                              ? Icons.visibility_off
+                              : Icons.visibility)),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
                       hintText: 'Password',
                       labelText: 'password'),
                 );
@@ -75,15 +82,23 @@ class _LoginScreenState extends State<LoginScreen> {
             ElevatedButton(
                 onPressed: () {
                   if (usernameController.text.trim() == "student") {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreenView()));
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => HomeScreenView()));
                   } else if (usernameController.text.trim() == "company") {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => CompanyHomeScreen()));
-                  }else if(usernameController.text.trim()=="tpo"){
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>tpohomescreen()));
-
-                  }
-                    else {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("failed")));
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CompanyHomeScreen()));
+                  } else if (usernameController.text.trim() == "tpo") {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => tpohomescreen()));
+                  } else {
+                    ScaffoldMessenger.of(context)
+                        .showSnackBar(SnackBar(content: Text("failed")));
                   }
                 },
                 child: Text("Login")),
@@ -92,13 +107,20 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             TextButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => SignupScreen()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => StudentRegister()));
               },
               child: RichText(
-                  text: TextSpan(style: TextStyle(color: Colors.black, fontSize: 16), children: [
-                TextSpan(text: "Dont have an account?  "),
-                TextSpan(text: "signup", style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF568896)))
-              ])),
+                  text: TextSpan(
+                      style: TextStyle(color: Colors.black, fontSize: 16),
+                      children: [
+                    TextSpan(text: "Dont have an account?  "),
+                    TextSpan(
+                        text: "signup",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF568896)))
+                  ])),
             )
           ],
         ),
