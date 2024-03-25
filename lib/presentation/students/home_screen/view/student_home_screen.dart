@@ -1,27 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:placement_app/core/constants/color_constants.dart';
+import 'package:placement_app/global_widget/student_appbar.dart';
 import 'package:placement_app/presentation/students/profile_Screen/view/profile_Screen_view.dart';
 
 import '../../../common/login_screen/view/login_screen.dart';
 
-class HomeScreenView extends StatefulWidget {
-  const HomeScreenView({super.key});
+class MaterialScreen extends StatefulWidget {
+  const MaterialScreen({super.key});
 
   @override
-  State<HomeScreenView> createState() => _HomeScreenViewState();
+  State<MaterialScreen> createState() => _MaterialScreenState();
 }
 
-class _HomeScreenViewState extends State<HomeScreenView> {
-  var lists = ["Apply  for Job", "View Materials", "Start A Quiz"];
+class _MaterialScreenState extends State<MaterialScreen> {
+  var chapters = [
+    "Chapter 1",
+    "Chapter 2",
+    "Chapter 3",
+    "Chapter 4",
+    "Chapter 5"
+  ];
+  var chaptername = [
+    "Problems on Train",
+    "Permutations and Combinations",
+    "Probability",
+    "Time and Work",
+    "Percentage"
+  ];
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.only(top: 40),
+      padding: const EdgeInsets.only(top: 20),
       child: Scaffold(
-        appBar: AppBar(
-          title: Text("Student Dashboard"),
-          backgroundColor: Colors.white,
-        ),
+        appBar: StudentAppBar(title: "Materials" ,),
         drawer: Drawer(
           backgroundColor: Colors.white,
           child: ListView(
@@ -44,7 +57,10 @@ class _HomeScreenViewState extends State<HomeScreenView> {
                 leading: Icon(Icons.person),
                 title: Text("profile"),
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileScreenView()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ProfileScreenView()));
                 },
               ),
               // ListTile(
@@ -61,28 +77,52 @@ class _HomeScreenViewState extends State<HomeScreenView> {
                 title: Text("Logout"),
                 onTap: () {
                   Navigator.pushAndRemoveUntil(
-                      context, MaterialPageRoute(builder: (context) => LoginScreen()), (route) => false);
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginScreen()),
+                      (route) => false);
                 },
               ),
             ],
           ),
         ),
         body: Center(
-          child: ListView.builder(
-              itemCount: lists.length,
-              itemBuilder: (context, index) => Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.blueGrey),
-                      width: 300,
-                      height: 180,
-                      child: Center(
-                          child: Text(
-                        lists[index],
-                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-                      )),
-                    ),
-                  )),
+          child: Padding(
+            padding: const EdgeInsets.only(left: 12, right: 12),
+            child: ListView.builder(
+                itemCount: chapters.length,
+                itemBuilder: (context, index) => Padding(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: Container(
+                        decoration: BoxDecoration(),
+                        height: size.height * .18,
+                        width: size.width * .1,
+                        child: Card(
+                          color: ColorConstants.white,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 25,left: 15),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  chapters[index],
+                                  style: TextStyle(color: ColorConstants.grey),
+                                ),
+                                SizedBox(
+                                  height: 18,
+                                ),
+                                Text(
+                                  chaptername[index],
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    )),
+          ),
         ),
       ),
     );
