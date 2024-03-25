@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:placement_app/presentation/common/get%20started%20scrn/get_started.dart';
 import 'package:placement_app/presentation/common/login_screen/controller/login_controller.dart';
-import 'package:placement_app/presentation/common/signup_screen/controller/signup_controller.dart';
-import 'package:placement_app/presentation/common/signup_screen/view/signup_screen.dart';
 import 'package:placement_app/presentation/company/bottomnavigation/controller/bottomcontroller.dart';
 import 'package:placement_app/presentation/students/bottom_navigation_screen/controller/bottom_navigation_controller.dart';
 import 'package:placement_app/presentation/tpo/bottom_navigation_screen/controller/bottom_navigation_controller.dart';
@@ -9,7 +8,6 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(create: (context) => SignupController()),
     ChangeNotifierProvider(create: (context) => LoginController()),
     ChangeNotifierProvider(create: (context) => BottomNavigationController()),
     ChangeNotifierProvider(create: (context) => bottomcontroller()),
@@ -24,7 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SignupScreen(),
+      home: GetStarted(),
       debugShowCheckedModeBanner: false,
     );
   }

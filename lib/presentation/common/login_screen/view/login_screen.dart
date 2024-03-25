@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:placement_app/presentation/common/login_screen/controller/login_controller.dart';
-import 'package:placement_app/presentation/common/signup_screen/view/signup_screen.dart';
-import 'package:placement_app/presentation/company/bottomnavigation/view/bottomnavigation_company.dart';
-import 'package:placement_app/presentation/company/home_screen/view/company_homescreen.dart';
-import 'package:placement_app/presentation/students/bottom_navigation_screen/view/bottom_navigation_screen.dart';
-import 'package:placement_app/presentation/students/home_screen/view/student_home_screen.dart';
-import 'package:placement_app/presentation/tpo/bottom_navigation_screen/view/bottom_navigation_screen.dart';
-import 'package:placement_app/presentation/tpo/tpohomescreen/view/tpohomescreen_view.dart';
+import 'package:placement_app/presentation/common/registration/student/view/student_register_scrn.dart';
 import 'package:provider/provider.dart';
+
+import '../../../../core/constants/color_constants.dart';
+import '../../../../global_widget/global_meterial_btn.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -24,6 +21,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    var width = size.width;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -82,50 +81,17 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: 20,
             ),
-            ElevatedButton(
-                onPressed: () {
-                  if (usernameController.text.trim() == "student") {
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => BottomNavigationScreen()));
-                  } else if (usernameController.text.trim() == "company") {
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                CompanyBottomNavigationScreen()));
-                  } else if (usernameController.text.trim() == "tpo") {
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => TPOBottomNavigationScreen()));
-                  } else {
-                    ScaffoldMessenger.of(context)
-                        .showSnackBar(SnackBar(content: Text("failed")));
-                  }
-                },
-                child: Text("Login")),
+            GLMetrialButton(
+              text: "Register",
+              color: ColorTheme.darkClr,
+              txtClr: ColorTheme.white,
+              height: width * .15,
+              width: width * .5,
+              route: LoginScreen(),
+            ),
             SizedBox(
               height: 9,
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SignupScreen()));
-              },
-              child: RichText(
-                  text: TextSpan(
-                      style: TextStyle(color: Colors.black, fontSize: 16),
-                      children: [
-                    TextSpan(text: "Dont have an account?  "),
-                    TextSpan(
-                        text: "signup",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF568896)))
-                  ])),
-            )
           ],
         ),
       ),
