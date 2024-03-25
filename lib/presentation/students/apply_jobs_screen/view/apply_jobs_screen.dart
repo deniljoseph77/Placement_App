@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:placement_app/core/constants/color_constants.dart';
 import 'package:placement_app/global_widget/student_appbar.dart';
 
+import '../../bottom_navigation_screen/view/bottom_navigation_screen.dart';
+
 class ApplyJobScreen extends StatelessWidget {
   const ApplyJobScreen({super.key});
 
@@ -58,13 +60,43 @@ class ApplyJobScreen extends StatelessWidget {
                           height: 15,
                         ),
                         Center(
-                            child: MaterialButton(color: ColorConstants.primary,
+                            child: MaterialButton(
+                                color: ColorConstants.primary,
                                 child: Text(
                                   "APPLY NOW",
-                                  style: TextStyle(color:ColorConstants.white,fontWeight: FontWeight.bold),
+                                  style: TextStyle(
+                                      color: ColorConstants.white,
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 height: size.height * .08,
-                                onPressed: () {}))
+                                onPressed: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) => AlertDialog(
+                                            actions: [
+                                              Center(
+                                                child: TextButton(
+                                                    onPressed: () {
+                                                      Navigator.pushAndRemoveUntil(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder: (context) =>
+                                                                  const BottomNavigationScreen()),
+                                                          (route) => false);
+                                                    },
+                                                    child: Text('DONE',
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            color:
+                                                                ColorConstants
+                                                                    .primary,
+                                                            fontSize: 20))),
+                                              ),
+                                            ],
+                                            backgroundColor: Colors.white,
+                                          ));
+                                }))
                       ],
                     ),
                   ),
