@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:placement_app/presentation/common/registration/student/controller/student_register_controller.dart';
+import 'package:placement_app/presentation/students/student_login_screen/view/student_login_screen.dart';
 import 'package:provider/provider.dart';
 import '../../../../../core/constants/global_text_styles.dart';
 import '../../../../../global_widget/textformfield/mytextformfiled.dart';
-import '../../../login_screen/view/login_screen.dart';
 
 import '../../../../../core/constants/color_constants.dart';
 
@@ -128,7 +128,7 @@ class _StudentRegisterState extends State<StudentRegister> {
                 TextButton(
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()));
+                        MaterialPageRoute(builder: (context) => StudentLoginScreen()));
                   },
                   child: RichText(
                       text: TextSpan(

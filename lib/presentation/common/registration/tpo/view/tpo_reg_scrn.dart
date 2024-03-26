@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:placement_app/presentation/common/login_screen/view/login_screen.dart';
+import 'package:placement_app/presentation/tpo/tpo_login_screen/view/tpo_login_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../core/constants/color_constants.dart';
@@ -15,11 +15,12 @@ class TpoRegistration extends StatefulWidget {
 }
 
 class _TpoRegistrationState extends State<TpoRegistration> {
-  var usernamControl = TextEditingController();
+  var usernameControl = TextEditingController();
   var nameControl = TextEditingController();
   var phoneControl = TextEditingController();
   var mailControl = TextEditingController();
   var passControl = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -46,7 +47,7 @@ class _TpoRegistrationState extends State<TpoRegistration> {
                   prefixIcon: Icon(Icons.person_2_outlined),
                   hintText: 'username',
                   labelText: "username",
-                  controller: usernamControl,
+                  controller: usernameControl,
                 ),
                 SizedBox(
                   height: 10,
@@ -89,10 +90,9 @@ class _TpoRegistrationState extends State<TpoRegistration> {
                 ),
                 MaterialButton(
                     onPressed: () {
-                      Provider.of<TpoRegisterController>(context, listen: false)
-                          .onRegister(
+                      Provider.of<TpoRegisterController>(context, listen: false).onRegister(
                         context,
-                        usernamControl.text,
+                        usernameControl.text,
                         nameControl.text,
                         phoneControl.text,
                         mailControl.text,
@@ -103,8 +103,7 @@ class _TpoRegistrationState extends State<TpoRegistration> {
                     height: width * .15,
                     color: ColorTheme.darkClr,
                     textColor: ColorTheme.white,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15)),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
                     child: Center(
                       child: Text(
                         "Register",
@@ -116,20 +115,13 @@ class _TpoRegistrationState extends State<TpoRegistration> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => TPOLoginScreen()));
                   },
                   child: RichText(
-                      text: TextSpan(
-                          style: TextStyle(color: Colors.black, fontSize: 16),
-                          children: [
-                        TextSpan(text: "Already registered?  "),
-                        TextSpan(
-                            text: "Login",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF568896)))
-                      ])),
+                      text: TextSpan(style: TextStyle(color: Colors.black, fontSize: 16), children: [
+                    TextSpan(text: "Already registered?  "),
+                    TextSpan(text: "Login", style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF568896)))
+                  ])),
                 ),
               ],
             ),

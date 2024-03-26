@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:placement_app/presentation/tpo/tpohomescreen/view/widget/tpo_user_card.dart';
+import 'package:placement_app/presentation/common/get%20started%20scrn/get_started.dart';
+import 'package:placement_app/presentation/tpo/tpo_manager_user_screen/view/widget/tpo_user_card.dart';
 
-import '../../../common/login_screen/view/login_screen.dart';
 
-class TPOHomeScreen extends StatelessWidget {
-  const TPOHomeScreen({super.key});
+class TPOManageUserScreen extends StatelessWidget {
+  const TPOManageUserScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class TPOHomeScreen extends StatelessWidget {
               title: Text("Logout"),
               onTap: () {
                 Navigator.pushAndRemoveUntil(
-                    context, MaterialPageRoute(builder: (context) => LoginScreen()), (route) => false);
+                    context, MaterialPageRoute(builder: (context) => GetStarted()), (route) => false);
               },
             )
           ],
@@ -36,14 +36,11 @@ class TPOHomeScreen extends StatelessWidget {
         padding: const EdgeInsets.all(18.0),
         child: ListView(
           children: [
-            InkWell(
-              onTap: () {},
-              child: TPOStudentCard(
-                fullName: 'Nitha Parveen',
-                phone: '98787576889',
-                email: 'nithaparveen@gmail.com',
-                username: 'nithaparveen',
-              ),
+            TPOStudentCard(
+              fullName: 'Nitha Parveen',
+              phone: '98787576889',
+              email: 'nithaparveen@gmail.com',
+              username: 'nithaparveen',
             )
           ],
         ),

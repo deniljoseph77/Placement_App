@@ -36,7 +36,7 @@ class ApplyJobScreen extends StatelessWidget {
                           height: 5,
                         ),
                         Text(
-                          'Descripton',
+                          'Description',
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.w400),
                         ),
