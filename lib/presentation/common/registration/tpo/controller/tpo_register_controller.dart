@@ -1,23 +1,22 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:placement_app/presentation/common/login_screen/view/login_screen.dart';
-import 'package:placement_app/repository/api/common/registration/student_service/student_service.dart';
+import 'package:placement_app/repository/api/common/registration/tpo_service/tpo_register_service.dart';
 
 import '../../../../../core/utils/app_utils.dart';
+import '../../../login_screen/view/login_screen.dart';
 
-class StudentRegController extends ChangeNotifier {
-  void onRegister(BuildContext context, String username, String firstname,
-      String lastname, String phoneno, String mail, String pass) async {
+class TpoRegisterController extends ChangeNotifier {
+  void onRegister(BuildContext context, String username, String name,
+      String phone, String mail, String pass) {
     var data = {
-      "First_name": firstname,
-      "Last_name": lastname,
-      "phone_no": phoneno,
+      "name": name,
+      "phone_no": phone,
       "email_address": mail,
       "username": username,
       "password": pass
     };
-    StudentRegisterService.postStudentRegister(data).then((resData) {
+    TpoRegisterService.postTpoRegister(data).then((resData) {
       log("onRegister ${resData["status"]}");
       if (resData["status"] == 1) {
         Navigator.pushReplacement(

@@ -12,6 +12,7 @@ class ApiHelper {
   }) async {
     log("ApiHelper -> getData()");
     final url = Uri.parse(AppConfig.baseurl + endPoint);
+    log("$url");
     try {
       var response = await http.get(url);
       log("Api Called => status code=${response.statusCode}");
@@ -36,6 +37,7 @@ class ApiHelper {
     log("ApiHelper -> postData()");
     log("body -> $body");
     final url = Uri.parse(AppConfig.baseurl + endPoint);
+    log("$url");
     try {
       var response = await http.post(url, body: body);
       log("Api Called -> status code:${response.statusCode}");
