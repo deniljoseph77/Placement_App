@@ -82,7 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 20,
             ),
             GLMetrialButton(
-              text: "Register",
+              text: "Login",
               color: ColorTheme.darkClr,
               txtClr: ColorTheme.white,
               height: width * .15,

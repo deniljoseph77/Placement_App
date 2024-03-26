@@ -3,6 +3,7 @@ import 'package:placement_app/presentation/common/registration/student/controlle
 import 'package:provider/provider.dart';
 import '../../../../../core/constants/global_text_styles.dart';
 import '../../../../../global_widget/textformfield/mytextformfiled.dart';
+import '../../../../students/bottom_navigation_screen/view/bottom_navigation_screen.dart';
 import '../../../login_screen/view/login_screen.dart';
 
 import '../../../../../core/constants/color_constants.dart';

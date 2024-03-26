@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:placement_app/core/constants/color_constants.dart';
+import 'package:placement_app/core/constants/global_text_styles.dart';
 import 'package:placement_app/global_widget/student_appbar.dart';
 import 'package:placement_app/presentation/students/profile_Screen/view/profile_Screen_view.dart';
 
@@ -44,20 +45,19 @@ class _MaterialScreenState extends State<MaterialScreen> {
               UserAccountsDrawerHeader(
                   decoration: BoxDecoration(color: Colors.blueGrey),
                   currentAccountPicture: CircleAvatar(
-                    child: Icon(Icons.person),
-                    backgroundColor: Colors.grey,
+                    child: Icon(Icons.person_rounded),
+                    backgroundColor: Colors.white,
                   ),
                   accountName: Text(
                     "Name",
-                    style: TextStyle(color: Colors.black),
+                    style:GLTextStyles.labeltxtBlk20
                   ),
                   accountEmail: Text(
-                    "Email",
-                    style: TextStyle(color: Colors.black),
+                    ""
                   )),
               ListTile(
                 leading: Icon(Icons.person),
-                title: Text("profile"),
+                title: Text("Profile",  style: GLTextStyles.labeltxtBlk18,),
                 onTap: () {
                   Navigator.push(
                       context,
@@ -65,29 +65,23 @@ class _MaterialScreenState extends State<MaterialScreen> {
                           builder: (context) => ProfileScreenView()));
                 },
               ),
-              // ListTile(
-              //   leading: Icon(Icons.upload),
-              //   title: Text("Add Resume"),
-              //   onTap: () {},
-              // ),
               ListTile(
                 leading: Icon(Icons.library_books_rounded),
                 title: Text(
-                  "Academic Details",
-                  style: TextStyle(),
+                  "Academic Details",  style: GLTextStyles.labeltxtBlk18
                 ),
               ),
               ListTile(
                 leading: Icon(Icons.file_copy),
-                title: Text("Project Details"),
+                title: Text("Project Details",  style: GLTextStyles.labeltxtBlk18),
               ),
               ListTile(
                 leading: Icon(Icons.settings),
-                title: Text("settings"),
+                title: Text("Settings",  style: GLTextStyles.labeltxtBlk18),
               ),
               ListTile(
                 leading: Icon(Icons.logout),
-                title: Text("Logout"),
+                title: Text("Logout",  style: GLTextStyles.labeltxtBlk18),
                 onTap: () {
                   Navigator.pushAndRemoveUntil(
                       context,
