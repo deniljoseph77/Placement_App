@@ -42,7 +42,7 @@ class TPOBottomNavigationScreen extends StatelessWidget {
               showUnselectedLabels: false,
               items: const [
                 BottomNavigationBarItem(icon: Icon(Icons.person),backgroundColor: ColorTheme.primary, label: "Manage User"),
-                BottomNavigationBarItem(icon: Icon(Icons.domain), label: "Manage User"),
+                BottomNavigationBarItem(icon: Icon(Icons.domain), label: "Manage Company"),
                 BottomNavigationBarItem(icon: Icon(Icons.contact_page), label: "Manage Request"),
               ]),
         );
