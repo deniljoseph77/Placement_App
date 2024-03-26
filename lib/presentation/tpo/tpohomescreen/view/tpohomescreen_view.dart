@@ -36,14 +36,11 @@ class TPOHomeScreen extends StatelessWidget {
         padding: const EdgeInsets.all(18.0),
         child: ListView(
           children: [
-            InkWell(
-              onTap: () {},
-              child: TPOStudentCard(
-                fullName: 'Nitha Parveen',
-                phone: '98787576889',
-                email: 'nithaparveen@gmail.com',
-                username: 'nithaparveen',
-              ),
+            TPOStudentCard(
+              fullName: 'Nitha Parveen',
+              phone: '98787576889',
+              email: 'nithaparveen@gmail.com',
+              username: 'nithaparveen',
             )
           ],
         ),

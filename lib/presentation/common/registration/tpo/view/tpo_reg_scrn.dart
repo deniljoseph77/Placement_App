@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:placement_app/presentation/common/login_screen/view/login_screen.dart';
+import 'package:placement_app/presentation/tpo/bottom_navigation_screen/view/bottom_navigation_screen.dart';
+import 'package:placement_app/presentation/tpo/tpohomescreen/view/tpohomescreen_view.dart';
 
 import '../../../../../core/constants/color_constants.dart';
 import '../../../../../global_widget/global_meterial_btn.dart';
@@ -74,7 +76,7 @@ class TpoRegistration extends StatelessWidget {
                 txtClr: ColorTheme.white,
                 height: width * .15,
                 width: width * .5,
-                route: LoginScreen(),
+                route: TPOBottomNavigationScreen(),
               ),
               SizedBox(
                 height: 8,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:placement_app/core/constants/color_constants.dart';
 import 'package:placement_app/presentation/tpo/bottom_navigation_screen/controller/bottom_navigation_controller.dart';
 import 'package:placement_app/presentation/tpo/manage_company_screen/view/manage_company_screen.dart';
 import 'package:placement_app/presentation/tpo/manage_request_screen/view/manage_request_screen.dart';
@@ -19,7 +20,8 @@ class TPOBottomNavigationScreen extends StatelessWidget {
       }),
       bottomNavigationBar: Consumer<TPOBottomNavigationController>(builder: (context, controller, _) {
         return Container(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(5),
+          margin: EdgeInsets.all(20),
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), color: Colors.blueGrey),
           child: BottomNavigationBar(
               backgroundColor: Colors.blueGrey,
@@ -39,7 +41,7 @@ class TPOBottomNavigationScreen extends StatelessWidget {
               showSelectedLabels: true,
               showUnselectedLabels: false,
               items: const [
-                BottomNavigationBarItem(icon: Icon(Icons.person), label: "Manage User"),
+                BottomNavigationBarItem(icon: Icon(Icons.person),backgroundColor: ColorTheme.primary, label: "Manage User"),
                 BottomNavigationBarItem(icon: Icon(Icons.domain), label: "Manage User"),
                 BottomNavigationBarItem(icon: Icon(Icons.contact_page), label: "Manage Request"),
               ]),
