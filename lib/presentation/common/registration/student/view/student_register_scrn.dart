@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../../global_widget/global_meterial_btn.dart';
 import '../../../../../global_widget/textformfield/mytextformfiled.dart';
+import '../../../../students/bottom_navigation_screen/view/bottom_navigation_screen.dart';
 import '../../../login_screen/view/login_screen.dart';
 
 import '../../../../../core/constants/color_constants.dart';
@@ -82,7 +83,7 @@ class StudentRegister extends StatelessWidget {
                 txtClr: ColorTheme.white,
                 height: width * .15,
                 width: width*.5,
-                route: LoginScreen(),
+                route: BottomNavigationScreen(),
               ),
               SizedBox(
                 height: 8,
@@ -96,7 +97,7 @@ class StudentRegister extends StatelessWidget {
                     text: TextSpan(
                         style: TextStyle(color: Colors.black, fontSize: 16),
                         children: [
-                      TextSpan(text: "Already registered?  "),
+                      TextSpan(text: "Already registered?"),
                       TextSpan(
                           text: "Login",
                           style: TextStyle(
