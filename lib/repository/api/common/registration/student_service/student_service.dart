@@ -3,10 +3,10 @@ import 'dart:developer';
 import '../../../../helper/api_helper.dart';
 
 class StudentService {
-  static Future<dynamic> studentRegister(Map<String, dynamic> data) async{
+  static Future<dynamic> postStudentRegister(Map<String, dynamic> data) async {
     try {
-      var decodedData = await ApiHelper.postData(
-          endPoint: "student/signup/", body: data);
+      var decodedData =
+          await ApiHelper.postData(endPoint: "student/signup/", body: data);
       if (decodedData["status"] == 1) {
         log("StudentService>studentRegister>success");
         return decodedData;
@@ -19,5 +19,4 @@ class StudentService {
       log("$e");
     }
   }
-  
 }

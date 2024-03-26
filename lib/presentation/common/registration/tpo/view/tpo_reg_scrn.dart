@@ -1,13 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:placement_app/presentation/common/login_screen/view/login_screen.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../core/constants/color_constants.dart';
-import '../../../../../global_widget/global_meterial_btn.dart';
+import '../../../../../core/constants/global_text_styles.dart';
 import '../../../../../global_widget/textformfield/mytextformfiled.dart';
+import '../controller/tpo_register_controller.dart';
 
-class TpoRegistration extends StatelessWidget {
+class TpoRegistration extends StatefulWidget {
   const TpoRegistration({super.key});
 
+  @override
+  State<TpoRegistration> createState() => _TpoRegistrationState();
+}
+
+class _TpoRegistrationState extends State<TpoRegistration> {
+  var usernamControl = TextEditingController();
+  var nameControl = TextEditingController();
+  var phoneControl = TextEditingController();
+  var mailControl = TextEditingController();
+  var passControl = TextEditingController();
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -34,6 +46,7 @@ class TpoRegistration extends StatelessWidget {
                   prefixIcon: Icon(Icons.person_2_outlined),
                   hintText: 'username',
                   labelText: "username",
+                  controller: usernamControl,
                 ),
                 SizedBox(
                   height: 10,
@@ -42,6 +55,7 @@ class TpoRegistration extends StatelessWidget {
                   prefixIcon: Icon(Icons.person_2_rounded),
                   hintText: 'Name',
                   labelText: "Name",
+                  controller: nameControl,
                 ),
                 SizedBox(
                   height: 10,
@@ -50,6 +64,7 @@ class TpoRegistration extends StatelessWidget {
                   prefixIcon: Icon(Icons.phone_android),
                   hintText: 'Phone Number',
                   labelText: "Phone number",
+                  controller: phoneControl,
                 ),
                 SizedBox(
                   height: 10,
@@ -58,6 +73,7 @@ class TpoRegistration extends StatelessWidget {
                   prefixIcon: Icon(Icons.mail),
                   hintText: 'Email',
                   labelText: "Email",
+                  controller: mailControl,
                 ),
                 SizedBox(
                   height: 10,
@@ -66,18 +82,35 @@ class TpoRegistration extends StatelessWidget {
                   prefixIcon: Icon(Icons.visibility_off),
                   hintText: 'Password',
                   labelText: "password",
+                  controller: passControl,
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                GLMetrialButton(
-                  text: "Register",
-                  color: ColorTheme.darkClr,
-                  txtClr: ColorTheme.white,
-                  height: width * .15,
-                  width: width * .5,
-                  route: LoginScreen(),
-                ),
+                MaterialButton(
+                    onPressed: () {
+                      Provider.of<TpoRegisterController>(context, listen: false)
+                          .onRegister(
+                        context,
+                        usernamControl.text,
+                        nameControl.text,
+                        phoneControl.text,
+                        mailControl.text,
+                        passControl.text,
+                      );
+                    },
+                    minWidth: width * .5,
+                    height: width * .15,
+                    color: ColorTheme.darkClr,
+                    textColor: ColorTheme.white,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Center(
+                      child: Text(
+                        "Register",
+                        style: GLTextStyles.labeltxt24,
+                      ),
+                    )),
                 SizedBox(
                   height: 8,
                 ),
