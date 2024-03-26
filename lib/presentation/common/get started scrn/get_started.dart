@@ -4,11 +4,11 @@ import 'package:lottie/lottie.dart';
 import 'package:placement_app/core/constants/color_constants.dart';
 import 'package:placement_app/core/constants/global_text_styles.dart';
 import 'package:placement_app/global_widget/global_meterial_btn.dart';
-import 'package:placement_app/presentation/common/login_screen/view/login_screen.dart';
 import 'package:placement_app/presentation/common/registration/company/view/company_reg_scrn.dart';
 import 'package:placement_app/presentation/common/registration/student/view/student_register_scrn.dart';
 import 'package:placement_app/presentation/common/registration/tpo/view/tpo_reg_scrn.dart';
-import 'package:placement_app/presentation/common/student_company/student_company.dart';
+
+import '../student_company_login/student_company.dart';
 
 
 

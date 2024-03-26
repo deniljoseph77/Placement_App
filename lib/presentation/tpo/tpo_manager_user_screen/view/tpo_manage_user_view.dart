@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:placement_app/presentation/common/get%20started%20scrn/get_started.dart';
 import 'package:placement_app/presentation/tpo/tpo_manager_user_screen/view/widget/tpo_user_card.dart';
 
-import '../../../common/login_screen/view/login_screen.dart';
 
 class TPOManageUserScreen extends StatelessWidget {
   const TPOManageUserScreen({super.key});
@@ -26,7 +26,7 @@ class TPOManageUserScreen extends StatelessWidget {
               title: Text("Logout"),
               onTap: () {
                 Navigator.pushAndRemoveUntil(
-                    context, MaterialPageRoute(builder: (context) => LoginScreen()), (route) => false);
+                    context, MaterialPageRoute(builder: (context) => GetStarted()), (route) => false);
               },
             )
           ],

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:placement_app/core/constants/color_constants.dart';
 import 'package:placement_app/core/constants/global_text_styles.dart';
 import 'package:placement_app/global_widget/student_appbar.dart';
+import 'package:placement_app/presentation/common/get%20started%20scrn/get_started.dart';
 import 'package:placement_app/presentation/students/profile_Screen/view/profile_Screen_view.dart';
 
-import '../../../common/login_screen/view/login_screen.dart';
 
 class MaterialScreen extends StatefulWidget {
   const MaterialScreen({super.key});
@@ -85,7 +85,7 @@ class _MaterialScreenState extends State<MaterialScreen> {
                 onTap: () {
                   Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (context) => LoginScreen()),
+                      MaterialPageRoute(builder: (context) => GetStarted()),
                       (route) => false);
                 },
               ),

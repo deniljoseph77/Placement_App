@@ -3,13 +3,13 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:placement_app/presentation/common/registration/company/controller/company_register_controller.dart';
+import 'package:placement_app/presentation/company/company_login_screen/view/company_login_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../core/constants/color_constants.dart';
 import '../../../../../core/constants/global_text_styles.dart';
 import '../../../../../global_widget/image_icon_button.dart';
 import '../../../../../global_widget/textformfield/mytextformfiled.dart';
-import '../../../login_screen/view/login_screen.dart';
 
 class CompanyRegistration extends StatefulWidget {
   const CompanyRegistration({super.key});
@@ -217,7 +217,7 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
                 TextButton(
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()));
+                        MaterialPageRoute(builder: (context) => CompanyLoginScreen()));
                   },
                   child: RichText(
                       text: TextSpan(

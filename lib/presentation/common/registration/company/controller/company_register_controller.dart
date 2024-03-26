@@ -2,26 +2,14 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:placement_app/config/app_config.dart';
+import 'package:placement_app/presentation/company/company_login_screen/view/company_login_screen.dart';
 import 'package:placement_app/repository/api/common/registration/company_service/company_service.dart';
 
 import '../../../../../core/utils/app_utils.dart';
-import '../../../login_screen/view/login_screen.dart';
 
 class CompanyRegisterController extends ChangeNotifier {
-  void onRegister(
-      BuildContext context,
-      File? image,
-      String username,
-      String name,
-      String descrption,
-      String industry,
-      String phone,
-      String mail,
-      String location,
-      String year,
-      String website,
-      String pass) {
+  void onRegister(BuildContext context, File? image, String username, String name, String descrption, String industry,
+      String phone, String mail, String location, String year, String website, String pass) {
     var imageUrl = {"http://10.11.0.135:8000" + image!.path};
     var data = {
       "name": name,
@@ -38,8 +26,7 @@ class CompanyRegisterController extends ChangeNotifier {
     CompanyRegisterService.postCompanyregister(data).then((resData) {
       log("onRegister ${resData["status"]}");
       if (resData["status"] == 1) {
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => LoginScreen()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => CompanyLoginScreen()));
       } else {
         var message = resData["msg"];
         AppUtils.oneTimeSnackBar(message, context: context);
@@ -54,7 +41,7 @@ class CompanyRegisterController extends ChangeNotifier {
 // import 'package:flutter/material.dart';
 // import 'package:placement_app/config/app_config.dart';
 // import '../../../../../core/utils/app_utils.dart';
-// import '../../../login_screen/view/login_screen.dart';
+// import '../../../company_login_screen/view/company_login_screen.dart';
 
 // class CompanyRegisterController extends ChangeNotifier {
 //   void onRegister(

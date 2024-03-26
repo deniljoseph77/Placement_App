@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:placement_app/presentation/common/login_screen/controller/login_controller.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/constants/color_constants.dart';
 import '../../../../global_widget/global_meterial_btn.dart';
+import '../controller/company_login_controller.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class CompanyLoginScreen extends StatefulWidget {
+  const CompanyLoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<CompanyLoginScreen> createState() => _CompanyLoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _CompanyLoginScreenState extends State<CompanyLoginScreen> {
   var usernameController = TextEditingController();
   var passwordController = TextEditingController();
 
@@ -57,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             Padding(
               padding: const EdgeInsets.all(11.0),
-              child: Consumer<LoginController>(
+              child: Consumer<CompanyLoginController>(
                   builder: (context, loginController, _) {
                 return TextFormField(
                   obscureText: loginController.visibility,
@@ -87,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
               txtClr: ColorTheme.white,
               height: width * .15,
               width: width * .5,
-              route: LoginScreen(),
+              route: CompanyLoginScreen(),
             ),
             SizedBox(
               height: 9,

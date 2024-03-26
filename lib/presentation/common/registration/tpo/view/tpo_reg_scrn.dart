@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:placement_app/presentation/common/login_screen/view/login_screen.dart';
+import 'package:placement_app/presentation/tpo/tpo_login_screen/view/tpo_login_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../core/constants/color_constants.dart';
@@ -15,7 +15,7 @@ class TpoRegistration extends StatefulWidget {
 }
 
 class _TpoRegistrationState extends State<TpoRegistration> {
-  var usernamControl = TextEditingController();
+  var usernameControl = TextEditingController();
   var nameControl = TextEditingController();
   var phoneControl = TextEditingController();
   var mailControl = TextEditingController();
@@ -47,7 +47,7 @@ class _TpoRegistrationState extends State<TpoRegistration> {
                   prefixIcon: Icon(Icons.person_2_outlined),
                   hintText: 'username',
                   labelText: "username",
-                  controller: usernamControl,
+                  controller: usernameControl,
                 ),
                 SizedBox(
                   height: 10,
@@ -92,7 +92,7 @@ class _TpoRegistrationState extends State<TpoRegistration> {
                     onPressed: () {
                       Provider.of<TpoRegisterController>(context, listen: false).onRegister(
                         context,
-                        usernamControl.text,
+                        usernameControl.text,
                         nameControl.text,
                         phoneControl.text,
                         mailControl.text,
@@ -115,7 +115,7 @@ class _TpoRegistrationState extends State<TpoRegistration> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => TPOLoginScreen()));
                   },
                   child: RichText(
                       text: TextSpan(style: TextStyle(color: Colors.black, fontSize: 16), children: [
