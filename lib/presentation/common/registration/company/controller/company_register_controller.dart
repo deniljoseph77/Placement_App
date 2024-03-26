@@ -1,122 +1,96 @@
+import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:placement_app/presentation/company/company_login_screen/view/company_login_screen.dart';
-import 'package:placement_app/repository/api/common/registration/company_service/company_service.dart';
-
-import '../../../../../core/utils/app_utils.dart';
+import 'package:http/http.dart' as http;
+import 'package:placement_app/config/app_config.dart';
+import 'package:placement_app/core/utils/app_utils.dart';
+import 'package:placement_app/presentation/common/student_company_login/student_company.dart';
 
 class CompanyRegisterController extends ChangeNotifier {
-  void onRegister(BuildContext context, File? image, String username, String name, String descrption, String industry,
-      String phone, String mail, String location, String year, String website, String pass) {
-    var imageUrl = {"http://10.11.0.135:8000" + image!.path};
-    var data = {
-      "name": name,
-      "description": descrption,
-      "industry": industry,
-      "email_address": mail,
-      "phone_no": phone,
-      "Headquarters": location,
-      "founded": year,
-      "logo": imageUrl,
-      "website": website,
-      "username": username
-    };
-    CompanyRegisterService.postCompanyregister(data).then((resData) {
-      log("onRegister ${resData["status"]}");
-      if (resData["status"] == 1) {
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => CompanyLoginScreen()));
-      } else {
-        var message = resData["msg"];
-        AppUtils.oneTimeSnackBar(message, context: context);
-      }
-    });
+  Future<void> onRegister(
+      BuildContext context,
+      File? image,
+      String username,
+      String name,
+      String descrption,
+      String industry,
+      String phone,
+      String mail,
+      String location,
+      String year,
+      String website,
+      String pass) async {
+    try {
+      // Upload image
+      var imageUrl = "${AppConfig.baseurl}company/signup/";
+      onUploadImage(imageUrl, image, username, name, descrption, industry,
+              phone, mail, location, year, website, pass)
+          .then(
+        (response) {
+          log("${response.statusCode}");
+          if (response.statusCode == 200) {
+            // var decodedData = jsonDecode(response.body);
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => StudentCompany()));
+          } else {
+            // Handle error in API response
+            var message = jsonDecode(response.body)["msg"];
+            AppUtils.oneTimeSnackBar(message, context: context);
+          }
+        },
+      );
+    } catch (e) {
+      // Handle any exceptions
+      print("Error occurred: $e");
+    }
+  }
+
+  Future<http.Response> onUploadImage(
+    String url,
+    File? selectedImage,
+    String username,
+    String name,
+    String descrption,
+    String industry,
+    String phone,
+    String mail,
+    String location,
+    String year,
+    String website,
+    String pass,
+  ) async {
+    var request = http.MultipartRequest('POST', Uri.parse(url));
+    Map<String, String> headers = {"Content-type": "multipart/form-data"};
+
+    if (selectedImage != null) {
+      print("Image file size: ${selectedImage.lengthSync()} bytes <<<<<<<<<<<");
+      // var request = http.MultipartRequest('POST', Uri.parse(url));
+
+      // Add image file to the request
+      request.files.add(
+        await http.MultipartFile.fromPath(
+          'logo',
+          selectedImage.path,
+        ),
+      );
+    }
+
+    request.fields['name'] = name;
+    request.fields['description'] = descrption;
+    request.fields['industry'] = industry;
+    request.fields['email_address'] = mail;
+    request.fields['phone_no'] = phone;
+    request.fields['Headquarters'] = location;
+    request.fields['founded'] = year;
+    request.fields['website'] = website;
+    request.fields['username'] = username;
+    request.fields['password'] = pass;
+
+    request.headers.addAll(headers);
+    print("request: " + request.toString());
+    var res = await request.send();
+    return await http.Response.fromStream(res);
   }
 }
-
-// import 'dart:convert';
-// import 'dart:io';
-// import 'package:http/http.dart' as http;
-// import 'package:flutter/material.dart';
-// import 'package:placement_app/config/app_config.dart';
-// import '../../../../../core/utils/app_utils.dart';
-// import '../../../company_login_screen/view/company_login_screen.dart';
-
-// class CompanyRegisterController extends ChangeNotifier {
-//   void onRegister(
-//     BuildContext context,
-//     File? image,
-//     String username,
-//     String name,
-//     String description,
-//     String industry,
-//     String phone,
-//     String mail,
-//     String location,
-//     String year,
-//     String website,
-//     String pass,
-//   ) async {
-//     if (image == null) {
-//       // Handle the case when no image is selected
-//       return;
-//     }
-
-//     // Create a multipart request
-//     var request = http.MultipartRequest(
-//       'POST',
-//       Uri.parse('http://10.11.0.135:8000'),
-//     );
-
-//     // Add the image file to the request
-//     request.files.add(
-//       await http.MultipartFile.fromPath(
-//         'logo', // Name of the field in the form
-//         image.path, // Path to the image file
-//       ),
-//     );
-
-//     // Add other form fields
-//     request.fields.addAll({
-//       'name': name,
-//       'description': description,
-//       'industry': industry,
-//       'email_address': mail,
-//       'phone_no': phone,
-//       'Headquarters': location,
-//       'founded': year,
-//       'website': website,
-//       'username': username,
-//     });
-
-//     try {
-//       var response = await request.send();
-//       if (response.statusCode == 200) {
-//         // Successful upload
-//         var responseData = await response.stream.bytesToString();
-//         var resData = json.decode(responseData);
-//         print("onRegister ${resData["status"]}");
-//         if (resData["status"] == 1) {
-//           Navigator.pushReplacement(
-//             context,
-//             MaterialPageRoute(builder: (context) => LoginScreen()),
-//           );
-//         } else {
-//           var message = resData["msg"];
-//           AppUtils.oneTimeSnackBar(message, context: context);
-//         }
-//       } else {
-//         // Handle error response
-//         print('Error: ${response.reasonPhrase}');
-//         AppUtils.oneTimeSnackBar('Failed to upload image',
-//             context: context);
-//       }
-//     } catch (e) {
-//       // Handle error
-//       print('Exception during image upload: $e');
-//       AppUtils.oneTimeSnackBar('Failed to upload image',
-//           context: context);
-//     }
-//   }
-// }
