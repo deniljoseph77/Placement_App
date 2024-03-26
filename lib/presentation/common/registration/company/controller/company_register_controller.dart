@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:placement_app/config/app_config.dart';
 import 'package:placement_app/core/utils/app_utils.dart';
+import 'package:placement_app/presentation/common/student_company_login/student_company.dart';
 
 class CompanyRegisterController extends ChangeNotifier {
   Future<void> onRegister(
@@ -28,19 +29,15 @@ class CompanyRegisterController extends ChangeNotifier {
               phone, mail, location, year, website, pass)
           .then(
         (response) {
+          log("${response.statusCode}");
           if (response.statusCode == 200) {
-            var decodedData = jsonDecode(response.body);
-            if (decodedData["status"] == 1) {
-              log("${decodedData}");
-              AppUtils.oneTimeSnackBar("succsess", context: context);
-            } else {
-              var message = jsonDecode(response.body)["msg"];
-              AppUtils.oneTimeSnackBar(message, context: context);
-            }
+            // var decodedData = jsonDecode(response.body);
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => StudentCompany()));
           } else {
             // Handle error in API response
-            var message = "Error in API";
-            print(message);
+            var message = jsonDecode(response.body)["msg"];
+            AppUtils.oneTimeSnackBar(message, context: context);
           }
         },
       );
@@ -68,7 +65,7 @@ class CompanyRegisterController extends ChangeNotifier {
     Map<String, String> headers = {"Content-type": "multipart/form-data"};
 
     if (selectedImage != null) {
-      // print("Image file size: ${selectedImage.lengthSync()} bytes <<<<<<<<<<<");
+      print("Image file size: ${selectedImage.lengthSync()} bytes <<<<<<<<<<<");
       // var request = http.MultipartRequest('POST', Uri.parse(url));
 
       // Add image file to the request
