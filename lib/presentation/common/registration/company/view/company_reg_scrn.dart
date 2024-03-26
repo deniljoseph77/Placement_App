@@ -186,6 +186,7 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
                       Provider.of<CompanyRegisterController>(context,
                               listen: false)
                           .onRegister(
+                            
                               context,
                               image,
                               usernameControl.text,
