@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/constants/color_constants.dart';
-import '../../../../global_widget/global_meterial_btn.dart';
+import '../../../../core/constants/global_text_styles.dart';
 import '../controller/tpo_login_controller.dart';
 
 class TPOLoginScreen extends StatefulWidget {
@@ -30,12 +30,9 @@ class _TPOLoginScreenState extends State<TPOLoginScreen> {
           children: [
             Text(
               "Login Here!",
-              style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF568896)),
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Color(0xFF568896)),
             ),
-        
+
             SizedBox(
               height: 30,
             ),
@@ -46,8 +43,7 @@ class _TPOLoginScreenState extends State<TPOLoginScreen> {
                 controller: usernameController,
                 decoration: InputDecoration(
                     prefixIcon: Icon(Icons.person),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                     hintText: 'username',
                     labelText: 'username'),
               ),
@@ -57,8 +53,7 @@ class _TPOLoginScreenState extends State<TPOLoginScreen> {
             ),
             Padding(
               padding: const EdgeInsets.all(11.0),
-              child: Consumer<TPOLoginController>(
-                  builder: (context, loginController, _) {
+              child: Consumer<TPOLoginController>(builder: (context, loginController, _) {
                 return TextFormField(
                   obscureText: loginController.visibility,
                   obscuringCharacter: '*',
@@ -68,11 +63,8 @@ class _TPOLoginScreenState extends State<TPOLoginScreen> {
                           onPressed: () {
                             loginController.iconPressed();
                           },
-                          icon: Icon(loginController.visibility == true
-                              ? Icons.visibility_off
-                              : Icons.visibility)),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)),
+                          icon: Icon(loginController.visibility == true ? Icons.visibility_off : Icons.visibility)),
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                       hintText: 'Password',
                       labelText: 'password'),
                 );
@@ -81,14 +73,22 @@ class _TPOLoginScreenState extends State<TPOLoginScreen> {
             SizedBox(
               height: 20,
             ),
-            GLMetrialButton(
-              text: "Login",
-              color: ColorTheme.darkClr,
-              txtClr: ColorTheme.white,
-              height: width * .15,
-              width: width * .5,
-              route: TPOLoginScreen(),
-            ),
+            MaterialButton(
+                onPressed: () {
+                  Provider.of<TPOLoginController>(context, listen: false)
+                      .onLogin(usernameController.text.trim(), passwordController.text.trim(), context);
+                },
+                minWidth: width * .5,
+                height: width * .15,
+                color: ColorTheme.darkClr,
+                textColor: ColorTheme.white,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                child: Center(
+                  child: Text(
+                    "Login",
+                    style: GLTextStyles.labeltxt24,
+                  ),
+                )),
             SizedBox(
               height: 9,
             ),
