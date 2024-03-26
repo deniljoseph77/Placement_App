@@ -10,19 +10,17 @@ class QuizScreen extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       body: Center(
-          child:
-          MaterialButton(
-              color: ColorConstants.primary,
+          child: MaterialButton(
+              color: ColorTheme.primary,
               child: Text(
                 "START QUIZ NOW !",
                 style: TextStyle(
-                  fontSize: 20,
-                    color: ColorConstants.white,
+                    fontSize: 20,
+                    color: ColorTheme.white,
                     fontWeight: FontWeight.bold),
               ),
               height: size.height * .15,
-              onPressed: () {
-              })),
+              onPressed: () {})),
     );
   }
 }

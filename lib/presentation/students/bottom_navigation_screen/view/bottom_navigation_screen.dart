@@ -13,32 +13,39 @@ class BottomNavigationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Consumer<BottomNavigationController>(
-        builder: (context,controller,_) {
-          return IndexedStack(
-            children: [MaterialScreen(), ApplyJobScreen(), QuizScreen()],
-            index: controller.currentIndex,
-          );
-        }
-      ),
-      bottomNavigationBar: Consumer<BottomNavigationController>(builder: (context, controller, _) {
+          builder: (context, controller, _) {
+        return IndexedStack(
+          children: [MaterialScreen(), ApplyJobScreen(), QuizScreen()],
+          index: controller.currentIndex,
+        );
+      }),
+      bottomNavigationBar: Consumer<BottomNavigationController>(
+          builder: (context, controller, _) {
         return Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
             padding: const EdgeInsets.all(5.0),
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),color: ColorConstants.primary),
-            child: BottomNavigationBar(selectedIconTheme:IconThemeData(color: ColorConstants.white),elevation:0,backgroundColor: ColorConstants.primary,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: ColorTheme.primary),
+            child: BottomNavigationBar(
+                selectedIconTheme: IconThemeData(color: ColorTheme.white),
+                elevation: 0,
+                backgroundColor: ColorTheme.primary,
                 onTap: (index) {
                   controller.currentIndex = index;
                 },
                 currentIndex: controller.currentIndex,
                 type: BottomNavigationBarType.fixed,
-                unselectedItemColor: ColorConstants.grey,
-                selectedItemColor: ColorConstants.white,
+                unselectedItemColor: ColorTheme.grey,
+                selectedItemColor: ColorTheme.white,
                 showSelectedLabels: true,
                 showUnselectedLabels: false,
                 items: [
-                  BottomNavigationBarItem(icon: Icon(Icons.menu_book_sharp), label: "Material"),
-                  BottomNavigationBarItem(icon: Icon(Icons.add), label: "Apply"),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.menu_book_sharp), label: "Material"),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.add), label: "Apply"),
                   BottomNavigationBarItem(icon: Icon(Icons.quiz), label: "Quiz")
                 ]),
           ),
