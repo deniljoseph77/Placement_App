@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:placement_app/presentation/tpo/tpohomescreen/view/widget/tpo_user_card.dart';
+import 'package:placement_app/presentation/tpo/tpo_manager_user_screen/view/widget/tpo_user_card.dart';
 
 import '../../../common/login_screen/view/login_screen.dart';
 
-class TPOHomeScreen extends StatelessWidget {
-  const TPOHomeScreen({super.key});
+class TPOManageUserScreen extends StatelessWidget {
+  const TPOManageUserScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

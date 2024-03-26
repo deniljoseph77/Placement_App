@@ -3,7 +3,7 @@ import 'package:placement_app/core/constants/color_constants.dart';
 import 'package:placement_app/presentation/tpo/bottom_navigation_screen/controller/bottom_navigation_controller.dart';
 import 'package:placement_app/presentation/tpo/manage_company_screen/view/manage_company_screen.dart';
 import 'package:placement_app/presentation/tpo/manage_request_screen/view/manage_request_screen.dart';
-import 'package:placement_app/presentation/tpo/tpohomescreen/view/tpohomescreen_view.dart';
+import 'package:placement_app/presentation/tpo/tpo_manager_user_screen/view/tpo_manage_user_view.dart';
 import 'package:provider/provider.dart';
 
 class TPOBottomNavigationScreen extends StatelessWidget {
@@ -15,7 +15,7 @@ class TPOBottomNavigationScreen extends StatelessWidget {
       body: Consumer<TPOBottomNavigationController>(builder: (context, controller, _) {
         return IndexedStack(
           index: controller.currentIndex,
-          children: const [TPOHomeScreen(), TPOManageCompanyScreen(), TPOManageRequestScreen()],
+          children: const [TPOManageUserScreen(), TPOManageCompanyScreen(), TPOManageRequestScreen()],
         );
       }),
       bottomNavigationBar: Consumer<TPOBottomNavigationController>(builder: (context, controller, _) {
@@ -26,6 +26,7 @@ class TPOBottomNavigationScreen extends StatelessWidget {
           child: BottomNavigationBar(
               backgroundColor: Colors.blueGrey,
               currentIndex: controller.currentIndex,
+              elevation: 0,
               onTap: (index) {
                 controller.currentIndex = index;
               },

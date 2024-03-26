@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:placement_app/presentation/common/login_screen/view/login_screen.dart';
 import 'package:provider/provider.dart';
-import 'package:placement_app/presentation/tpo/bottom_navigation_screen/view/bottom_navigation_screen.dart';
-import 'package:placement_app/presentation/tpo/tpohomescreen/view/tpohomescreen_view.dart';
 
 import '../../../../../core/constants/color_constants.dart';
 import '../../../../../core/constants/global_text_styles.dart';
@@ -22,6 +20,7 @@ class _TpoRegistrationState extends State<TpoRegistration> {
   var phoneControl = TextEditingController();
   var mailControl = TextEditingController();
   var passControl = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -91,8 +90,7 @@ class _TpoRegistrationState extends State<TpoRegistration> {
                 ),
                 MaterialButton(
                     onPressed: () {
-                      Provider.of<TpoRegisterController>(context, listen: false)
-                          .onRegister(
+                      Provider.of<TpoRegisterController>(context, listen: false).onRegister(
                         context,
                         usernamControl.text,
                         nameControl.text,
@@ -105,8 +103,7 @@ class _TpoRegistrationState extends State<TpoRegistration> {
                     height: width * .15,
                     color: ColorTheme.darkClr,
                     textColor: ColorTheme.white,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15)),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
                     child: Center(
                       child: Text(
                         "Register",
@@ -118,20 +115,13 @@ class _TpoRegistrationState extends State<TpoRegistration> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
                   },
                   child: RichText(
-                      text: TextSpan(
-                          style: TextStyle(color: Colors.black, fontSize: 16),
-                          children: [
-                        TextSpan(text: "Already registered?  "),
-                        TextSpan(
-                            text: "Login",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF568896)))
-                      ])),
+                      text: TextSpan(style: TextStyle(color: Colors.black, fontSize: 16), children: [
+                    TextSpan(text: "Already registered?  "),
+                    TextSpan(text: "Login", style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF568896)))
+                  ])),
                 ),
               ],
             ),
