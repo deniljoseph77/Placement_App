@@ -16,7 +16,7 @@ class TPOLoginController extends ChangeNotifier {
     log("TPOLoginController -> started");
     var data = {"username": username, "password": password};
     TPOLoginService.postTPOLoginData(data).then((value) {
-      log("posTPOLogindata() -> ${value["status"]}");
+      log("posTPOLoginData() -> ${value["status"]}");
       if (value["status"] == 1) {
         log("token -> ${value["token"]}");
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => TPOBottomNavigationScreen()));

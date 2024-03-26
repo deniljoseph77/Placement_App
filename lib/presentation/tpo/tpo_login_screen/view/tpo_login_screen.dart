@@ -74,21 +74,22 @@ class _TPOLoginScreenState extends State<TPOLoginScreen> {
               height: 20,
             ),
             MaterialButton(
-                onPressed: () {
-                  Provider.of<TPOLoginController>(context, listen: false)
-                      .onLogin(usernameController.text.trim(), passwordController.text.trim(), context);
-                },
-                minWidth: width * .5,
-                height: width * .15,
-                color: ColorTheme.darkClr,
-                textColor: ColorTheme.white,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-                child: Center(
-                  child: Text(
-                    "Login",
-                    style: GLTextStyles.labeltxt24,
-                  ),
-                )),
+              onPressed: () {
+                Provider.of<TPOLoginController>(context, listen: false)
+                    .onLogin(usernameController.text.trim(), passwordController.text.trim(), context);
+              },
+              minWidth: width * .5,
+              height: width * .15,
+              color: ColorTheme.darkClr,
+              textColor: ColorTheme.white,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+              child: Center(
+                child: Text(
+                  "Login",
+                  style: GLTextStyles.labeltxt24,
+                ),
+              ),
+            ),
             SizedBox(
               height: 9,
             ),
