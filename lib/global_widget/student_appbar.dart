@@ -22,7 +22,7 @@ class StudentAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text(title!),
       centerTitle: centerTitle,
-      backgroundColor: ColorConstants.white,
+      backgroundColor: ColorTheme.white,
       leading: leading,
       actions: actions,
     );
