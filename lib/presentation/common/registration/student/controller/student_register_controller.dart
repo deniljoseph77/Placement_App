@@ -17,7 +17,7 @@ class StudentRegController extends ChangeNotifier {
       "username": username,
       "password": pass
     };
-    StudentService.postStudentRegister(data).then((resData) {
+    StudentRegisterService.postStudentRegister(data).then((resData) {
       log("onRegister ${resData["status"]}");
       if (resData["status"] == 1) {
         Navigator.pushReplacement(

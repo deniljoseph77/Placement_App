@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:placement_app/presentation/common/get%20started%20scrn/get_started.dart';
 import 'package:placement_app/presentation/common/login_screen/controller/login_controller.dart';
+import 'package:placement_app/presentation/common/registration/company/controller/company_register_controller.dart';
 import 'package:placement_app/presentation/common/registration/student/controller/student_register_controller.dart';
 import 'package:placement_app/presentation/common/registration/tpo/controller/tpo_register_controller.dart';
 import 'package:placement_app/presentation/company/bottomnavigation/controller/bottomcontroller.dart';
@@ -16,6 +17,7 @@ void main() {
     ChangeNotifierProvider(create: (context) => TPOBottomNavigationController()),
     ChangeNotifierProvider(create: (context) => StudentRegController()),
     ChangeNotifierProvider(create: (context) => TpoRegisterController()),
+    ChangeNotifierProvider(create: (context) => CompanyRegisterController()),
   ], child: const MyApp()));
 }
 

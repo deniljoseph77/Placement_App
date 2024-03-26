@@ -2,9 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:placement_app/presentation/common/registration/company/controller/company_register_controller.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../core/constants/color_constants.dart';
-import '../../../../../global_widget/global_meterial_btn.dart';
+import '../../../../../core/constants/global_text_styles.dart';
 import '../../../../../global_widget/image_icon_button.dart';
 import '../../../../../global_widget/textformfield/mytextformfiled.dart';
 import '../../../login_screen/view/login_screen.dart';
@@ -18,6 +20,16 @@ class CompanyRegistration extends StatefulWidget {
 
 class _CompanyRegistrationState extends State<CompanyRegistration> {
   File? image;
+  var usernameControl = TextEditingController();
+  var nameControl = TextEditingController();
+  var descripControl = TextEditingController();
+  var industryControl = TextEditingController();
+  var phoneControl = TextEditingController();
+  var mailControl = TextEditingController();
+  var locControl = TextEditingController();
+  var yearControl = TextEditingController();
+  var webControl = TextEditingController();
+  var passControl = TextEditingController();
 
   Future<void> _getImage(ImageSource source) async {
     final pickedFile = await ImagePicker().pickImage(source: source);
@@ -28,8 +40,7 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
     }
   }
 
-
-    @override
+  @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     var width = size.width;
@@ -55,6 +66,7 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
                   prefixIcon: Icon(Icons.person_2_outlined),
                   hintText: 'username',
                   labelText: "username",
+                  controller: usernameControl,
                 ),
                 SizedBox(
                   height: 10,
@@ -63,6 +75,7 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
                   prefixIcon: Icon(Icons.person_2_rounded),
                   hintText: 'Company Name',
                   labelText: "Company Name",
+                  controller: nameControl,
                 ),
                 SizedBox(
                   height: 10,
@@ -71,6 +84,7 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
                   prefixIcon: Icon(Icons.phone_android),
                   hintText: 'Description',
                   labelText: "Description",
+                  controller: descripControl,
                 ),
                 SizedBox(
                   height: 10,
@@ -79,6 +93,7 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
                   prefixIcon: Icon(Icons.location_city_outlined),
                   hintText: 'Industry',
                   labelText: "Industry",
+                  controller: industryControl,
                 ),
                 SizedBox(
                   height: 10,
@@ -87,6 +102,7 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
                   prefixIcon: Icon(Icons.phone_android),
                   hintText: 'Phone Number',
                   labelText: "Phone number",
+                  controller: phoneControl,
                 ),
                 SizedBox(
                   height: 10,
@@ -95,6 +111,7 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
                   prefixIcon: Icon(Icons.mail),
                   hintText: 'Email',
                   labelText: "Email",
+                  controller: mailControl,
                 ),
                 SizedBox(
                   height: 10,
@@ -103,6 +120,7 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
                   prefixIcon: Icon(Icons.location_city),
                   hintText: 'Location',
                   labelText: "Location",
+                  controller: locControl,
                 ),
                 SizedBox(
                   height: 10,
@@ -111,6 +129,7 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
                   prefixIcon: Icon(Icons.date_range),
                   hintText: 'Since',
                   labelText: "Since",
+                  controller: yearControl,
                 ),
                 SizedBox(
                   height: 10,
@@ -148,6 +167,7 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
                   prefixIcon: Icon(Icons.link),
                   hintText: 'website',
                   labelText: "website",
+                  controller: webControl,
                 ),
                 SizedBox(
                   height: 10,
@@ -156,18 +176,41 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
                   prefixIcon: Icon(Icons.visibility_off),
                   hintText: 'Password',
                   labelText: "password",
+                  controller: passControl,
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                GLMetrialButton(
-                  text: "Register",
-                  color: ColorTheme.darkClr,
-                  txtClr: ColorTheme.white,
-                  height: width * .15,
-                  width: width * .5,
-                  route: LoginScreen(),
-                ),
+                MaterialButton(
+                    onPressed: () {
+                      Provider.of<CompanyRegisterController>(context,
+                              listen: false)
+                          .onRegister(
+                              context,
+                              image,
+                              usernameControl.text,
+                              nameControl.text,
+                              descripControl.text,
+                              industryControl.text,
+                              phoneControl.text,
+                              mailControl.text,
+                              locControl.text,
+                              yearControl.text,
+                              webControl.text,
+                              passControl.text);
+                    },
+                    minWidth: width * .5,
+                    height: width * .15,
+                    color: ColorTheme.darkClr,
+                    textColor: ColorTheme.white,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Center(
+                      child: Text(
+                        "Register",
+                        style: GLTextStyles.labeltxt24,
+                      ),
+                    )),
                 SizedBox(
                   height: 8,
                 ),

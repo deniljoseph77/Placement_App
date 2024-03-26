@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import '../../../../helper/api_helper.dart';
 
-class StudentService {
+class StudentRegisterService {
   static Future<dynamic> postStudentRegister(Map<String, dynamic> data) async {
     try {
       var decodedData =
