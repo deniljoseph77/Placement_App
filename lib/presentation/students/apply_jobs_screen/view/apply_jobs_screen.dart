@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:placement_app/core/constants/color_constants.dart';
 import 'package:placement_app/global_widget/student_appbar.dart';
 
-import '../../bottom_navigation_screen/view/bottom_navigation_screen.dart';
+import '../../bottom_navigation_screen/view/student_bottom_navigation_screen.dart';
 
 class ApplyJobScreen extends StatelessWidget {
   const ApplyJobScreen({super.key});
@@ -81,7 +81,7 @@ class ApplyJobScreen extends StatelessWidget {
                                                           context,
                                                           MaterialPageRoute(
                                                               builder: (context) =>
-                                                                  const BottomNavigationScreen()),
+                                                                  const StudentBottomNavigationScreen()),
                                                           (route) => false);
                                                     },
                                                     child: Text('DONE',

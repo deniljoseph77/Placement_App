@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:placement_app/config/app_config.dart';
 import 'package:placement_app/core/utils/app_utils.dart';
 import 'package:placement_app/presentation/tpo/bottom_navigation_screen/view/bottom_navigation_screen.dart';
-import 'package:placement_app/repository/api/tpo/tpo_login_service.dart';
+import 'package:placement_app/repository/api/tpo/service/tpo_login_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class TPOLoginController extends ChangeNotifier {
@@ -13,7 +13,7 @@ class TPOLoginController extends ChangeNotifier {
   late SharedPreferences sharedPreferences;
 
   Future onLogin(String username, String password, BuildContext context) async {
-    log("TPOTPOLoginController -> started");
+    log("TPOLoginController -> started");
     var data = {"username": username, "password": password};
     TPOLoginService.postTPOLoginData(data).then((value) {
       log("posTPOLogindata() -> ${value["status"]}");
@@ -21,7 +21,7 @@ class TPOLoginController extends ChangeNotifier {
         log("token -> ${value["token"]}");
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => TPOBottomNavigationScreen()));
       } else {
-        var message = value["non_field_errors"];
+        var message = value["non_field_errors"].toString();
         AppUtils.oneTimeSnackBar(message, context: context);
       }
     });

@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:placement_app/core/constants/color_constants.dart';
 import 'package:placement_app/presentation/students/apply_jobs_screen/view/apply_jobs_screen.dart';
-import 'package:placement_app/presentation/students/bottom_navigation_screen/controller/bottom_navigation_controller.dart';
+import 'package:placement_app/presentation/students/bottom_navigation_screen/controller/student_bottom_navigation_controller.dart';
 import 'package:placement_app/presentation/students/home_screen/view/student_home_screen.dart';
 import 'package:placement_app/presentation/students/quiz_screen/view/quiz_screen.dart';
 import 'package:provider/provider.dart';
 
-class BottomNavigationScreen extends StatelessWidget {
-  const BottomNavigationScreen({super.key});
+class StudentBottomNavigationScreen extends StatelessWidget {
+  const StudentBottomNavigationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Consumer<BottomNavigationController>(
+      body: Consumer<StudentBottomNavigationController>(
           builder: (context, controller, _) {
         return IndexedStack(
           children: [MaterialScreen(), ApplyJobScreen(), QuizScreen()],
           index: controller.currentIndex,
         );
       }),
-      bottomNavigationBar: Consumer<BottomNavigationController>(
+      bottomNavigationBar: Consumer<StudentBottomNavigationController>(
           builder: (context, controller, _) {
         return Padding(
           padding: const EdgeInsets.all(8.0),
