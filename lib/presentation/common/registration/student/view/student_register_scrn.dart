@@ -83,7 +83,7 @@ class StudentRegister extends StatelessWidget {
                 txtClr: ColorTheme.white,
                 height: width * .15,
                 width: width*.5,
-                route: BottomNavigationScreen(),
+                route: LoginScreen(),
               ),
               SizedBox(
                 height: 8,
