@@ -23,7 +23,8 @@ class _LoginScreenState extends State<LoginScreen> {
     var size = MediaQuery.of(context).size;
     var width = size.width;
     return Scaffold(
-      body: SingleChildScrollView(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -34,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   fontWeight: FontWeight.bold,
                   color: Color(0xFF568896)),
             ),
-
+        
             SizedBox(
               height: 30,
             ),
