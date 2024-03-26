@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:placement_app/presentation/common/login_screen/controller/login_controller.dart';
-import 'package:placement_app/presentation/common/registration/student/view/student_register_scrn.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/constants/color_constants.dart';
