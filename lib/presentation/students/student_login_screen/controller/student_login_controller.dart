@@ -3,7 +3,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:placement_app/presentation/students/bottom_navigation_screen/view/student_bottom_navigation_screen.dart';
-import 'package:placement_app/repository/api/student_service/student_login_service.dart';
+import 'package:placement_app/repository/api/common/login/student_service/student_login_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../config/app_config.dart';
