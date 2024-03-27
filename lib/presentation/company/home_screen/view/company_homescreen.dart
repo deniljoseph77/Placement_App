@@ -4,10 +4,6 @@ import 'package:placement_app/presentation/company/home_screen/view/widget/stude
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../../config/app_config.dart';
-import '../../../../core/constants/global_text_styles.dart';
-import '../../../common/get started scrn/get_started.dart';
-
 class CompanyHomeScreen extends StatefulWidget {
   const CompanyHomeScreen({super.key});
 
@@ -17,6 +13,7 @@ class CompanyHomeScreen extends StatefulWidget {
 
 class _CompanyHomeScreenState extends State<CompanyHomeScreen> {
   late SharedPreferences sharedPreferences;
+
   @override
   void initState() {
     fetchData();
@@ -37,21 +34,23 @@ class _CompanyHomeScreenState extends State<CompanyHomeScreen> {
         backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
       ),
-
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(18.0),
           child: Consumer<HomeScreenController>(builder: (context, controller, _) {
-            return ListView.builder(
-                itemCount: controller.studentApplicationModel.data?.length, itemBuilder: (context, index) {
-              return StudentApplicationCard(name: controller.studentApplicationModel.data?[index].student,
-                  date: controller.studentApplicationModel.data?[index].appliedDate.toString(),
-                  status: controller.studentApplicationModel.data?[index].status);
-            });
+            return controller.isLoading
+                ? Center(child: CircularProgressIndicator())
+                : ListView.builder(
+                    itemCount: controller.studentApplicationModel.data?.length,
+                    itemBuilder: (context, index) {
+                      return StudentApplicationCard(
+                          name: controller.studentApplicationModel.data?[index].student,
+                          date: controller.studentApplicationModel.data?[index].appliedDate.toString(),
+                          status: controller.studentApplicationModel.data?[index].status);
+                    });
           }),
         ),
       ),
     );
   }
-
 }
