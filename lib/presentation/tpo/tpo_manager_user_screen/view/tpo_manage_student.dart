@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:placement_app/presentation/common/get%20started%20scrn/get_started.dart';
 import 'package:placement_app/presentation/tpo/tpo_manager_user_screen/controller/tpo_manage_student_controller.dart';
 import 'package:placement_app/presentation/tpo/tpo_manager_user_screen/view/widget/tpo_user_card.dart';
 import 'package:provider/provider.dart';
@@ -21,26 +20,28 @@ class _TPOManageStudentScreenState extends State<TPOManageStudentScreen> {
           elevation: 0,
           backgroundColor: Colors.white,
         ),
-        drawer: Drawer(
-          child: ListView(
-            children: [
-              UserAccountsDrawerHeader(
-                  decoration: BoxDecoration(color: Colors.blueGrey),
-                  accountName: Text("TPO"),
-                  accountEmail: Text("Tpo@mail.com")),
-              ListTile(
-                leading: Icon(Icons.logout),
-                title: Text("Logout"),
-                onTap: () {
-                  Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(builder: (context) => GetStarted()),
-                      (route) => false);
-                },
-              )
-            ],
-          ),
-        ),
+        // drawer: Drawer(child: Consumer<TPOManageStudentController>(
+        //   builder: (context, tControl, child) {
+        //     return ListView(
+        //       children: [
+        //         UserAccountsDrawerHeader(
+        //             decoration: BoxDecoration(color: Colors.blueGrey),
+        //             accountName: Text("${tControl.name}"),
+        //             accountEmail: Text("${tControl.mail}")),
+        //         ListTile(
+        //           leading: Icon(Icons.logout),
+        //           title: Text("Logout"),
+        //           onTap: () {
+        //             Navigator.pushAndRemoveUntil(
+        //                 context,
+        //                 MaterialPageRoute(builder: (context) => GetStarted()),
+        //                 (route) => false);
+        //           },
+        //         )
+        //       ],
+        //     );
+        //   },
+        // )),
         body: FutureBuilder(
             future:
                 Provider.of<TPOManageStudentController>(context, listen: false)
