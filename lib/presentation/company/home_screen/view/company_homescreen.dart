@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:placement_app/presentation/company/home_screen/controller/home_screen_controller.dart';
 import 'package:placement_app/presentation/company/home_screen/view/widget/student_application_card.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../../config/app_config.dart';
+import '../../../../core/constants/global_text_styles.dart';
+import '../../../common/get started scrn/get_started.dart';
 
 class CompanyHomeScreen extends StatefulWidget {
   const CompanyHomeScreen({super.key});
@@ -11,6 +16,7 @@ class CompanyHomeScreen extends StatefulWidget {
 }
 
 class _CompanyHomeScreenState extends State<CompanyHomeScreen> {
+  late SharedPreferences sharedPreferences;
   @override
   void initState() {
     fetchData();
@@ -25,10 +31,13 @@ class _CompanyHomeScreenState extends State<CompanyHomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        //leading: Icon(Icons.menu),
         title: Text("Company Dashboard"),
         elevation: 0,
         backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
       ),
+
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(18.0),
@@ -44,4 +53,5 @@ class _CompanyHomeScreenState extends State<CompanyHomeScreen> {
       ),
     );
   }
+
 }

@@ -13,16 +13,18 @@ class CompanyLoginController extends ChangeNotifier {
   bool visibility = true;
   late SharedPreferences sharedPreferences;
 
-  Future onLogin(String username, String password, BuildContext context)async{
+  Future onLogin(String username, String password, BuildContext context) async {
     log("CompanyLoginController -> started");
     var data = {"username": username, "password": password};
     CompanyLoginService.postCompanyLoginData(data).then((value) {
       log("postCompanyLoginData() -> ${value["status"]}");
-      if(value["status"]==1){
+      if (value["status"] == 1) {
         log("token -> ${value["token"]}");
         storeUserToken(value);
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => CompanyBottomNavigationScreen()));
-      }else{
+        storeLoginData(value);
+        Navigator.pushAndRemoveUntil(
+            context, MaterialPageRoute(builder: (context) => CompanyBottomNavigationScreen()), (route) => false);
+      } else {
         var message = value["non_field_errors"].toString();
         AppUtils.oneTimeSnackBar(message, context: context);
       }
@@ -34,6 +36,7 @@ class CompanyLoginController extends ChangeNotifier {
     sharedPreferences = await SharedPreferences.getInstance();
     String storeData = jsonEncode(loginReceivedData);
     sharedPreferences.setString(AppConfig.loginDataKey, storeData);
+    sharedPreferences.setBool(AppConfig.companyLoggedIn, true);
   }
 
   storeUserToken(resData) async {
