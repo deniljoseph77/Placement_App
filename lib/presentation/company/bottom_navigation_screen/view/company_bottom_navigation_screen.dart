@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../controller/bottomcontroller.dart';
+import '../controller/bottom_navigation_controller.dart';
 
 class CompanyBottomNavigationScreen extends StatefulWidget {
   const CompanyBottomNavigationScreen({super.key});

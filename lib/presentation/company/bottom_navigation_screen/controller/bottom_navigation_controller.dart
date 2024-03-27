@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:placement_app/presentation/company/home_screen/view/company_homescreen.dart';
 import 'package:placement_app/presentation/company/postjob_screen/view/postjob_screen.dart';
 
-import '../../../tpo/tpo_manager_user_screen/view/tpo_manage_user_view.dart';
+import '../../jobs_posted/view/jobs_posted_screen.dart';
 
 class CompanyBottomController with ChangeNotifier {
   int selectedIndex = 0;
@@ -12,5 +12,5 @@ class CompanyBottomController with ChangeNotifier {
     notifyListeners();
   }
 
-  List<Widget> screens = [CompanyHomeScreen(), PostJobScreen(), TPOManageUserScreen()];
+  List<Widget> screens = [CompanyHomeScreen(), PostJobScreen(), JobsPostedScreen()];
 }

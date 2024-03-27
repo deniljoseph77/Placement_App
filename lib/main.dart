@@ -3,7 +3,7 @@ import 'package:placement_app/presentation/common/get%20started%20scrn/get_start
 import 'package:placement_app/presentation/common/registration/company/controller/company_register_controller.dart';
 import 'package:placement_app/presentation/common/registration/student/controller/student_register_controller.dart';
 import 'package:placement_app/presentation/common/registration/tpo/controller/tpo_register_controller.dart';
-import 'package:placement_app/presentation/company/bottomnavigation/controller/bottomcontroller.dart';
+import 'package:placement_app/presentation/company/bottom_navigation_screen/controller/bottom_navigation_controller.dart';
 import 'package:placement_app/presentation/company/company_login_screen/controller/company_login_controller.dart';
 import 'package:placement_app/presentation/students/bottom_navigation_screen/controller/student_bottom_navigation_controller.dart';
 import 'package:placement_app/presentation/students/student_login_screen/controller/student_login_controller.dart';

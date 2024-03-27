@@ -2,12 +2,12 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:placement_app/presentation/company/bottomnavigation/view/bottomnavigation_company.dart';
 import 'package:placement_app/repository/api/common/login/company_service/company_login_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../config/app_config.dart';
 import '../../../../core/utils/app_utils.dart';
+import '../../bottom_navigation_screen/view/company_bottom_navigation_screen.dart';
 
 class CompanyLoginController extends ChangeNotifier {
   bool visibility = true;
