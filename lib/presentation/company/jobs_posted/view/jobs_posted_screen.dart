@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../postjob_screen/view/widgets/posted_jobs_details_card.dart';
+
 class JobsPostedScreen extends StatefulWidget {
   const JobsPostedScreen({super.key});
 
@@ -19,42 +21,17 @@ class _JobsPostedScreenState extends State<JobsPostedScreen> {
       body: Center(
         child: Padding(
           padding: EdgeInsets.only(left: 10, right: 10),
-          child: Column(
-            children: [
-              Container(
-                height: size.width * .3,
-                width: size.width * .9,
-                padding: EdgeInsets.only(left: 10, top: 10),
-                decoration: BoxDecoration(
-                    border: Border.all(),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Company  :'),
-                            Text('Job title   :'),
-                            Text('Description :'),
-                            Text('Requirement :'),
-                            Text('Salary      :'),
-                            Text('Last date   :'),
-                          ],
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                      ],
-                    ),
-
-                  ],
-                ),
-              ),
-            ],
-          ),
+          child: ListView.builder(itemCount: 2,itemBuilder: (context,index){
+            return PostedJobsDetailsCard(
+              size: size,
+              companyName: 'Nitha',
+              jobTitle: 'devoloper',
+              description: 'kdjlfj',
+              requirement: 'qjnd12312',
+              salary: '12312',
+              lastDate: '123123',
+            );
+          }),
         ),
       ),
     );
