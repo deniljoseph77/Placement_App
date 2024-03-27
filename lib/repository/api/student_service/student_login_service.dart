@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import '../../../helper/api_helper.dart';
+import '../../helper/api_helper.dart';
 
 class StudentLoginService {
   static Future<dynamic> postStudentLoginData(Map<String, dynamic> data) async {

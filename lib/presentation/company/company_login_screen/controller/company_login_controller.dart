@@ -3,7 +3,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:placement_app/presentation/company/bottomnavigation/view/bottomnavigation_company.dart';
-import 'package:placement_app/repository/api/company/service/company_login_service.dart';
+import 'package:placement_app/repository/api/company_service/company_login_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../config/app_config.dart';

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:placement_app/config/app_config.dart';
 import 'package:placement_app/core/utils/app_utils.dart';
 import 'package:placement_app/presentation/tpo/bottom_navigation_screen/view/bottom_navigation_screen.dart';
-import 'package:placement_app/repository/api/tpo/service/tpo_login_service.dart';
+import 'package:placement_app/repository/api/tpo_service/tpo_login_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class TPOLoginController extends ChangeNotifier {
