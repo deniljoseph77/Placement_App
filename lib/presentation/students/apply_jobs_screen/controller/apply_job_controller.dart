@@ -16,11 +16,25 @@ class ApplyJobsController extends ChangeNotifier {
     ApplyJobsService.fetchApplyJobs().then((value) {
       log("ApplyJobsService.fetchApplyJobs() -> started");
       if (value["status"] == 1) {
-        log("data -> ${value["status"]}");
+        log("data -> ${value["data"]}");
         applyJobsModel = ApplyJobsModel.fromJson(value);
         isLoading = false;
       } else {
         AppUtils.oneTimeSnackBar("error", context: context);
+      }
+      notifyListeners();
+    });
+  }
+
+  postApplyJob(context, id) async {
+    log("ApplyJobsController -> postApplyJob");
+    ApplyJobsService.postApplyJob(id).then((value) {
+      log("ApplyJobsService.postApplyJob(id) -> started");
+      if (value["status"] == 1) {
+        log("data -> ${value["status"]}");
+        AppUtils.oneTimeSnackBar("Applied", context: context);
+      } else {
+        AppUtils.oneTimeSnackBar("Error", context: context);
       }
       notifyListeners();
     });

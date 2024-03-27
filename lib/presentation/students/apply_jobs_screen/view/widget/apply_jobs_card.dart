@@ -12,6 +12,7 @@ class ApplyJobsCard extends StatelessWidget {
     required this.salary,
     this.requirement,
     required this.deadLine,
+    required this.onPressed,
   });
 
   final Size size;
@@ -21,6 +22,7 @@ class ApplyJobsCard extends StatelessWidget {
   final String? salary;
   final String? requirement;
   final String? deadLine;
+  final Function onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +43,12 @@ class ApplyJobsCard extends StatelessWidget {
               ),
               SizedBox(height: 5),
               Text(
-                '$description',maxLines: 2,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400,),
+                '$description',
+                maxLines: 2,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
               SizedBox(height: 5),
               Text(
@@ -67,13 +73,14 @@ class ApplyJobsCard extends StatelessWidget {
               SizedBox(height: 10),
               Center(
                 child: MaterialButton(
-                    color: ColorTheme.primary,
-                    child: Text(
-                      "APPLY NOW",
-                      style: TextStyle(color: ColorTheme.white, fontWeight: FontWeight.bold),
-                    ),
-                    height: size.height * .06,
-                    onPressed: () {}),
+                  color: ColorTheme.primary,
+                  child: Text(
+                    "APPLY NOW",
+                    style: TextStyle(color: ColorTheme.white, fontWeight: FontWeight.bold),
+                  ),
+                  height: size.height * .06,
+                  onPressed: () => onPressed,
+                ),
               )
             ],
           ),
