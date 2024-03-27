@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:placement_app/core/constants/color_constants.dart';
+import 'package:placement_app/core/constants/global_text_styles.dart';
 import 'package:placement_app/global_widget/student_appbar.dart';
+import 'package:placement_app/presentation/common/get%20started%20scrn/get_started.dart';
 import 'package:placement_app/presentation/students/profile_Screen/view/profile_Screen_view.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../common/login_screen/view/login_screen.dart';
+import '../../../../config/app_config.dart';
 
 class MaterialScreen extends StatefulWidget {
   const MaterialScreen({super.key});
@@ -13,13 +16,7 @@ class MaterialScreen extends StatefulWidget {
 }
 
 class _MaterialScreenState extends State<MaterialScreen> {
-  var chapters = [
-    "Chapter 1",
-    "Chapter 2",
-    "Chapter 3",
-    "Chapter 4",
-    "Chapter 5"
-  ];
+  var chapters = ["Chapter 1", "Chapter 2", "Chapter 3", "Chapter 4", "Chapter 5"];
   var chaptername = [
     "Problems on Train",
     "Permutations and Combinations",
@@ -27,6 +24,7 @@ class _MaterialScreenState extends State<MaterialScreen> {
     "Time and Work",
     "Percentage"
   ];
+  late SharedPreferences sharedPreferences;
 
   @override
   Widget build(BuildContext context) {
@@ -44,55 +42,40 @@ class _MaterialScreenState extends State<MaterialScreen> {
               UserAccountsDrawerHeader(
                   decoration: BoxDecoration(color: Colors.blueGrey),
                   currentAccountPicture: CircleAvatar(
-                    child: Icon(Icons.person),
-                    backgroundColor: Colors.grey,
+                    child: Icon(Icons.person_rounded),
+                    backgroundColor: Colors.white,
                   ),
-                  accountName: Text(
-                    "Name",
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  accountEmail: Text(
-                    "Email",
-                    style: TextStyle(color: Colors.black),
-                  )),
+                  accountName: Text("Name", style: GLTextStyles.labeltxtBlk20),
+                  accountEmail: Text("")),
               ListTile(
                 leading: Icon(Icons.person),
-                title: Text("profile"),
+                title: Text(
+                  "Profile",
+                  style: GLTextStyles.labeltxtBlk18,
+                ),
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ProfileScreenView()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileScreenView()));
                 },
               ),
-              // ListTile(
-              //   leading: Icon(Icons.upload),
-              //   title: Text("Add Resume"),
-              //   onTap: () {},
-              // ),
               ListTile(
                 leading: Icon(Icons.library_books_rounded),
-                title: Text(
-                  "Academic Details",
-                  style: TextStyle(),
-                ),
+                title: Text("Academic Details", style: GLTextStyles.labeltxtBlk18),
               ),
               ListTile(
                 leading: Icon(Icons.file_copy),
-                title: Text("Project Details"),
+                title: Text("Project Details", style: GLTextStyles.labeltxtBlk18),
               ),
               ListTile(
                 leading: Icon(Icons.settings),
-                title: Text("settings"),
+                title: Text("Settings", style: GLTextStyles.labeltxtBlk18),
               ),
               ListTile(
                 leading: Icon(Icons.logout),
-                title: Text("Logout"),
+                title: Text("Logout", style: GLTextStyles.labeltxtBlk18),
                 onTap: () {
+                  logout();
                   Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(builder: (context) => LoginScreen()),
-                      (route) => false);
+                      context, MaterialPageRoute(builder: (context) => GetStarted()), (route) => false);
                 },
               ),
             ],
@@ -125,9 +108,7 @@ class _MaterialScreenState extends State<MaterialScreen> {
                                 ),
                                 Text(
                                   chaptername[index],
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black),
+                                  style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
                                 ),
                               ],
                             ),
@@ -139,5 +120,10 @@ class _MaterialScreenState extends State<MaterialScreen> {
         ),
       ),
     );
+  }
+
+  logout() async {
+    sharedPreferences = await SharedPreferences.getInstance();
+    sharedPreferences.setBool(AppConfig.studentLoggedIn, false);
   }
 }

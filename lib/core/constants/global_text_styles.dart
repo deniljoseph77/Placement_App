@@ -8,6 +8,11 @@ class GLTextStyles {
     fontWeight: FontWeight.w500,
     color: ColorTheme.black,
   );
+  static TextStyle titleStyle26 = GoogleFonts.poppins(
+    fontSize: 26.0,
+    fontWeight: FontWeight.w500,
+    color: ColorTheme.black,
+  );
   static TextStyle titleWhite = GoogleFonts.poppins(
     fontSize: 22.0,
     fontWeight: FontWeight.w600,
@@ -68,6 +73,11 @@ class GLTextStyles {
   );
   static TextStyle labeltxtBlk16 = GoogleFonts.kanit(
     fontSize: 16,
+    fontWeight: FontWeight.w500,
+    color: ColorTheme.black,
+  );
+  static TextStyle labeltxtBlk18 = GoogleFonts.kanit(
+    fontSize: 18,
     fontWeight: FontWeight.w500,
     color: ColorTheme.black,
   );
