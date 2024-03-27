@@ -44,7 +44,7 @@ class ApiHelper {
   static postData({
     required String endPoint,
     Map<String, String>? header,
-    required Map<String, dynamic> body,
+     Map<String, dynamic>? body,
   }) async {
     log("ApiHelper -> postData()");
     log("body -> $body");

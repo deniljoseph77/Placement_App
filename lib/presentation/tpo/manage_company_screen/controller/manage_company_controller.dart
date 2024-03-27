@@ -2,13 +2,11 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:placement_app/repository/api/tpo/tpo_manage_company/service/manage_company_service.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/utils/app_utils.dart';
 import '../../../../repository/api/tpo/tpo_manage_company/model/manage_company_model.dart';
 
 class TPOManageCompanyController extends ChangeNotifier {
-  late SharedPreferences sharedPreferences;
   TpoManageCompanyModel tpoManageCompanyModel = TpoManageCompanyModel();
 
   fetchCompanyList(BuildContext context) async {
