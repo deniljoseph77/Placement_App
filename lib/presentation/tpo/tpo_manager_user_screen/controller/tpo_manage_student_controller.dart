@@ -9,19 +9,15 @@ import '../../../../core/utils/app_utils.dart';
 
 class TPOManageStudentController extends ChangeNotifier {
   late SharedPreferences sharedPreferences;
-  late TpoManageStudentModel tpoManageStudentModel = TpoManageStudentModel();
-  List<Datum>? myList = [];
+  TpoManageStudentModel tpoManageStudentModel = TpoManageStudentModel();
+  List<dynamic>? myList;
 
   fetchStudentList(BuildContext context) async {
     log("TPOManageStudentController>>fetchStudentList");
 
     TPOManageStudentService.fetchData().then((resData) {
-      log("$resData");
       if (resData["status"] == 1) {
-        tpoManageStudentModel = TpoManageStudentModel.fromJson(resData["data"]);
-        myList = tpoManageStudentModel.data;
-
-        print(myList);
+        tpoManageStudentModel = TpoManageStudentModel.fromJson(resData);
       } else {
         AppUtils.oneTimeSnackBar("Error: Data Not Found ", context: context);
       }
