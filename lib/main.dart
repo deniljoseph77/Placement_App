@@ -29,11 +29,10 @@ void main() {
     ChangeNotifierProvider(create: (context) => TpoRegisterController()),
     ChangeNotifierProvider(create: (context) => CompanyRegisterController()),
     ChangeNotifierProvider(create: (context) => TPOManageStudentController()),
-    // ChangeNotifierProvider(create: (context) => ),
     ChangeNotifierProvider(create: (context) => HomeScreenController()),
-    ChangeNotifierProvider(create: (context) => JobsPostedController())
-,
+    ChangeNotifierProvider(create: (context) => JobsPostedController()),
     ChangeNotifierProvider(create: (context) => TPOManageCompanyController()),
+    // ChangeNotifierProvider(create: (context) => ),
   ], child: const MyApp()));
 }
 
