@@ -21,7 +21,7 @@ class HomeScreenController extends ChangeNotifier {
       if (value["status"] == 1) {
         log("data -> ${value["data"]}");
         studentApplicationModel = StudentApplicationModel.fromJson(value);
-        log("model work aayada");
+        log("apply_jobs_screen work aayada");
         isLoading = false;
       } else {
         AppUtils.oneTimeSnackBar("Error", context: context);
