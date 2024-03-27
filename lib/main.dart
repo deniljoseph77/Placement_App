@@ -8,6 +8,7 @@ import 'package:placement_app/presentation/company/company_login_screen/controll
 import 'package:placement_app/presentation/company/home_screen/controller/home_screen_controller.dart';
 import 'package:placement_app/presentation/company/jobs_posted/controller/job_posted_controller.dart';
 import 'package:placement_app/presentation/company/postjob_screen/controller/post_job_controller.dart';
+import 'package:placement_app/presentation/students/apply_jobs_screen/controller/apply_job_controller.dart';
 import 'package:placement_app/presentation/students/bottom_navigation_screen/controller/student_bottom_navigation_controller.dart';
 import 'package:placement_app/presentation/students/student_login_screen/controller/student_login_controller.dart';
 import 'package:placement_app/presentation/tpo/bottom_navigation_screen/controller/bottom_navigation_controller.dart';
@@ -31,7 +32,8 @@ void main() {
     ChangeNotifierProvider(create: (context) => HomeScreenController()),
     ChangeNotifierProvider(create: (context) => JobsPostedController()),
     ChangeNotifierProvider(create: (context) => TPOManageCompanyController()),
-    ChangeNotifierProvider(create: (context) => PostJobController())
+    ChangeNotifierProvider(create: (context) => PostJobController()),
+    ChangeNotifierProvider(create: (context)=> ApplyJobsController())
     // ChangeNotifierProvider(create: (context) => ),
   ], child: const MyApp()));
 }
