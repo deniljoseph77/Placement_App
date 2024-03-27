@@ -15,13 +15,18 @@ class TPOLoginController extends ChangeNotifier {
   Future onLogin(String username, String password, BuildContext context) async {
     log("TPOLoginController -> started");
     var data = {"username": username, "password": password};
-    TPOLoginService.postTPOLoginData(data).then((value) {
-      log("posTPOLoginData() -> ${value["status"]}");
-      if (value["status"] == 1) {
-        log("token -> ${value["token"]}");
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => TPOBottomNavigationScreen()));
+    TPOLoginService.postTPOLoginData(data).then((resData) {
+      log("posTPOLoginData() -> ${resData["status"]}");
+      if (resData["status"] == 1) {
+        log("token -> ${resData["token"]}");
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) => TPOBottomNavigationScreen()));
+        storeLoginData(resData);
+        storeUserToken(resData);
       } else {
-        var message = value["non_field_errors"].toString();
+        var message = resData["non_field_errors"].toString();
         AppUtils.oneTimeSnackBar(message, context: context);
       }
     });

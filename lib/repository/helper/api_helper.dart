@@ -8,7 +8,7 @@ import '../../config/app_config.dart';
 class ApiHelper {
   static Map<String, String> getApiHeader({String? access, String? dbName}) {
     if (access != null) {
-      return {'Content-Type': 'application/json', 'Authorization': 'Bearer $access'};
+      return {'Content-Type': 'application/json', 'Authorization': 'Token $access'};
     } else if (dbName != null) {
       return {'Content-Type': 'application/json', 'dbName': dbName};
     } else {
@@ -26,11 +26,11 @@ class ApiHelper {
     final url = Uri.parse(AppConfig.baseurl + endPoint);
     log("$url");
     try {
-      var response = await http.get(url);
+      var response = await http.get(url,headers: header);
       log("Api Called => status code=${response.statusCode}");
       if (response.statusCode == 200) {
         var decodedData = jsonDecode(response.body);
-        log(decodedData.toString());
+        log("Api Helper>>>>>>>${decodedData.toString()}");
         return decodedData;
       } else {
         log("Else Condition >> Api failed");
@@ -51,7 +51,7 @@ class ApiHelper {
     final url = Uri.parse(AppConfig.baseurl + endPoint);
     log("$url");
     try {
-      var response = await http.post(url, body: body);
+      var response = await http.post(url, body: body,headers: header);
       log("Api Called -> status code:${response.statusCode}");
       if (response.statusCode == 200) {
         var data = response.body;

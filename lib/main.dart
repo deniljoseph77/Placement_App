@@ -9,6 +9,7 @@ import 'package:placement_app/presentation/students/bottom_navigation_screen/con
 import 'package:placement_app/presentation/students/student_login_screen/controller/student_login_controller.dart';
 import 'package:placement_app/presentation/tpo/bottom_navigation_screen/controller/bottom_navigation_controller.dart';
 import 'package:placement_app/presentation/tpo/tpo_login_screen/controller/tpo_login_controller.dart';
+import 'package:placement_app/presentation/tpo/tpo_manager_user_screen/controller/tpo_manage_student_controller.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -22,6 +23,8 @@ void main() {
     ChangeNotifierProvider(create: (context) => StudentRegController()),
     ChangeNotifierProvider(create: (context) => TpoRegisterController()),
     ChangeNotifierProvider(create: (context) => CompanyRegisterController()),
+    ChangeNotifierProvider(create: (context) => TPOManageStudentController()),
+    // ChangeNotifierProvider(create: (context) => ),
   ], child: const MyApp()));
 }
 
