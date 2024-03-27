@@ -20,6 +20,7 @@ class CompanyLoginController extends ChangeNotifier {
       log("postCompanyLoginData() -> ${value["status"]}");
       if(value["status"]==1){
         log("token -> ${value["token"]}");
+        storeUserToken(value);
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => CompanyBottomNavigationScreen()));
       }else{
         var message = value["non_field_errors"].toString();

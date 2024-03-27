@@ -5,6 +5,7 @@ import 'package:placement_app/presentation/common/registration/student/controlle
 import 'package:placement_app/presentation/common/registration/tpo/controller/tpo_register_controller.dart';
 import 'package:placement_app/presentation/company/bottom_navigation_screen/controller/bottom_navigation_controller.dart';
 import 'package:placement_app/presentation/company/company_login_screen/controller/company_login_controller.dart';
+import 'package:placement_app/presentation/company/home_screen/controller/home_screen_controller.dart';
 import 'package:placement_app/presentation/students/bottom_navigation_screen/controller/student_bottom_navigation_controller.dart';
 import 'package:placement_app/presentation/students/student_login_screen/controller/student_login_controller.dart';
 import 'package:placement_app/presentation/tpo/bottom_navigation_screen/controller/bottom_navigation_controller.dart';
@@ -22,6 +23,7 @@ void main() {
     ChangeNotifierProvider(create: (context) => StudentRegController()),
     ChangeNotifierProvider(create: (context) => TpoRegisterController()),
     ChangeNotifierProvider(create: (context) => CompanyRegisterController()),
+    ChangeNotifierProvider(create: (context) => HomeScreenController())
   ], child: const MyApp()));
 }
 

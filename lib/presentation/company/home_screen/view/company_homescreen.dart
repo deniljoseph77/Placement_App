@@ -1,9 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:placement_app/presentation/company/home_screen/controller/home_screen_controller.dart';
 import 'package:placement_app/presentation/company/home_screen/view/widget/student_application_card.dart';
+import 'package:provider/provider.dart';
 
-class CompanyHomeScreen extends StatelessWidget {
+class CompanyHomeScreen extends StatefulWidget {
   const CompanyHomeScreen({super.key});
 
+  @override
+  State<CompanyHomeScreen> createState() => _CompanyHomeScreenState();
+}
+
+class _CompanyHomeScreenState extends State<CompanyHomeScreen> {
+  @override
+  void initState() {
+    fetchData();
+    super.initState();
+  }
+
+  fetchData()async{
+    Provider.of<HomeScreenController>(context,listen: false).fetchStudentApplication(context);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
