@@ -11,8 +11,6 @@ import '../../../../core/utils/app_utils.dart';
 class TPOManageStudentController extends ChangeNotifier {
   late SharedPreferences sharedPreferences;
   TpoManageStudentModel tpoManageStudentModel = TpoManageStudentModel();
-  List<dynamic>? myList;
-  var data;
 
   fetchStudentList(BuildContext context) async {
     log("TPOManageStudentController>>fetchStudentList");

@@ -3,7 +3,7 @@ import 'package:placement_app/core/constants/color_constants.dart';
 import 'package:placement_app/presentation/tpo/bottom_navigation_screen/controller/bottom_navigation_controller.dart';
 import 'package:placement_app/presentation/tpo/manage_company_screen/view/manage_company_screen.dart';
 import 'package:placement_app/presentation/tpo/manage_request_screen/view/manage_request_screen.dart';
-import 'package:placement_app/presentation/tpo/tpo_manager_user_screen/view/tpo_manage_student.dart';
+import 'package:placement_app/presentation/tpo/tpo_manager_student_screen/view/tpo_manage_student.dart';
 import 'package:provider/provider.dart';
 
 class TPOBottomNavigationScreen extends StatelessWidget {

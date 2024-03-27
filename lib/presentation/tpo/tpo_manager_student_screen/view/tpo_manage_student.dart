@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:placement_app/presentation/tpo/tpo_manager_user_screen/controller/tpo_manage_student_controller.dart';
-import 'package:placement_app/presentation/tpo/tpo_manager_user_screen/view/widget/tpo_user_card.dart';
+import 'package:placement_app/presentation/tpo/tpo_manager_student_screen/controller/tpo_manage_student_controller.dart';
+import 'package:placement_app/presentation/tpo/tpo_manager_student_screen/view/widget/tpo_user_card.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../../config/app_config.dart';
+import '../../../common/get started scrn/get_started.dart';
 
 class TPOManageStudentScreen extends StatefulWidget {
   const TPOManageStudentScreen({super.key});
@@ -11,6 +15,8 @@ class TPOManageStudentScreen extends StatefulWidget {
 }
 
 class _TPOManageStudentScreenState extends State<TPOManageStudentScreen> {
+  late SharedPreferences sharedPreferences;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,6 +25,18 @@ class _TPOManageStudentScreenState extends State<TPOManageStudentScreen> {
           centerTitle: true,
           elevation: 0,
           backgroundColor: Colors.white,
+          actions: [
+            IconButton(
+                onPressed: () {
+                  logout();
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => GetStarted()),
+                      (route) => false);
+                },
+                icon: Icon(Icons.logout_rounded)),
+                SizedBox(width: 10,)
+          ],
         ),
         // drawer: Drawer(child: Consumer<TPOManageStudentController>(
         //   builder: (context, tControl, child) {
@@ -77,5 +95,10 @@ class _TPOManageStudentScreenState extends State<TPOManageStudentScreen> {
                 );
               }
             }));
+  }
+
+  logout() async {
+    sharedPreferences = await SharedPreferences.getInstance();
+    sharedPreferences.setBool(AppConfig.studentLoggedIn, false);
   }
 }
