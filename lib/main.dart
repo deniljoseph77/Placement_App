@@ -34,7 +34,7 @@ void main() {
     ChangeNotifierProvider(create: (context) => JobsPostedController()),
     ChangeNotifierProvider(create: (context) => TPOManageCompanyController()),
     ChangeNotifierProvider(create: (context) => PostJobController()),
-    ChangeNotifierProvider(create: (context)=> ApplyJobsController())
+    ChangeNotifierProvider(create: (context)=> ApplyJobsController()),
     ChangeNotifierProvider(create: (context) => TPOManageJobController()),
     // ChangeNotifierProvider(create: (context) => ),
   ], child: const MyApp()));
