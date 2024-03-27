@@ -1,3 +1,4 @@
+
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ class TPOManageStudentController extends ChangeNotifier {
   late SharedPreferences sharedPreferences;
   TpoManageStudentModel tpoManageStudentModel = TpoManageStudentModel();
   List<dynamic>? myList;
+  var data;
 
   fetchStudentList(BuildContext context) async {
     log("TPOManageStudentController>>fetchStudentList");
@@ -24,4 +26,13 @@ class TPOManageStudentController extends ChangeNotifier {
       notifyListeners();
     });
   }
+
+
+  //  fetchUserDetails() async {
+  //   sharedPreferences = await SharedPreferences.getInstance();
+  //   var uData = sharedPreferences.getString(AppConfig.loginDataKey);
+  //   var data = jsonDecode(uData!)["data"];
+  //   log("TransactionController >>fetch userData >> ${data}");
+  //   return data;
+  // }
 }

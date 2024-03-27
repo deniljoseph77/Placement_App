@@ -52,7 +52,7 @@ class TPOBottomNavigationScreen extends StatelessWidget {
                 BottomNavigationBarItem(
                     icon: Icon(Icons.person),
                     backgroundColor: ColorTheme.primary,
-                    label: "Manage User"),
+                    label: "Manage Student"),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.domain), label: "Manage Company"),
                 BottomNavigationBarItem(
