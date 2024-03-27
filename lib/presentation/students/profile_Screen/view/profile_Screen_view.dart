@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:placement_app/core/constants/global_text_styles.dart';
 import 'package:placement_app/global_widget/student_appbar.dart';
-import 'package:placement_app/global_widget/textformfield/mytextformfiled.dart';
 
 class ProfileScreenView extends StatefulWidget {
   const ProfileScreenView({super.key});
