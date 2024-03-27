@@ -1,9 +1,26 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'dart:developer';
 
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../config/app_config.dart';
 import '../constants/global_text_styles.dart';
 
 class AppUtils {
-   static oneTimeSnackBar(
+  static Future<String?> getAccessKey() async {
+    log("getAccessKey");
+    final sharedPreferences = await SharedPreferences.getInstance();
+    if (sharedPreferences.get(AppConfig.token) != null) {
+      final access =
+          jsonDecode(sharedPreferences.get(AppConfig.token) as String);
+      return access;
+    } else {
+      return null;
+    }
+  }
+
+  static oneTimeSnackBar(
     String? message, {
     int time = 2,
     Color? bgColor,

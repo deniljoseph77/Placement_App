@@ -120,7 +120,7 @@ class _TpoRegistrationState extends State<TpoRegistration> {
                   child: RichText(
                       text: TextSpan(style: TextStyle(color: Colors.black, fontSize: 16), children: [
                     TextSpan(text: "Already registered?  "),
-                    TextSpan(text: "Login", style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF568896)))
+                    TextSpan(text: "Login Here", style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF568896)))
                   ])),
                 ),
               ],

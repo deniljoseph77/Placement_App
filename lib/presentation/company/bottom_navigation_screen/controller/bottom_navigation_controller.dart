@@ -12,5 +12,9 @@ class CompanyBottomController with ChangeNotifier {
     notifyListeners();
   }
 
-  List<Widget> screens = [CompanyHomeScreen(), PostJobScreen(), JobsPostedScreen()];
+  List<Widget> screens = [
+    CompanyHomeScreen(),
+    PostJobScreen(),
+    JobsPostedScreen()
+  ];
 }
