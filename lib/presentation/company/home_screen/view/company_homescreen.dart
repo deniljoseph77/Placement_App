@@ -17,9 +17,10 @@ class _CompanyHomeScreenState extends State<CompanyHomeScreen> {
     super.initState();
   }
 
-  fetchData()async{
-    Provider.of<HomeScreenController>(context,listen: false).fetchStudentApplication(context);
+  fetchData() async {
+    Provider.of<HomeScreenController>(context, listen: false).fetchStudentApplication(context);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,18 +32,16 @@ class _CompanyHomeScreenState extends State<CompanyHomeScreen> {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(18.0),
-          child: ListView(
-            children: [
-              StudentApplicationCard(name: 'Nitha Parveen', date: '13/12/24', status: 'Approved'),
-              SizedBox(
-                height: 18,
-              ),
-            ],
-          ),
+          child: Consumer<HomeScreenController>(builder: (context, controller, _) {
+            return ListView.builder(
+                itemCount: controller.studentApplicationModel.data?.length, itemBuilder: (context, index) {
+              return StudentApplicationCard(name: controller.studentApplicationModel.data?[index].student,
+                  date: controller.studentApplicationModel.data?[index].appliedDate.toString(),
+                  status: controller.studentApplicationModel.data?[index].status);
+            });
+          }),
         ),
       ),
     );
   }
 }
-
-
