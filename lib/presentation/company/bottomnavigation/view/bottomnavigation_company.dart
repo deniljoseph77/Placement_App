@@ -17,7 +17,7 @@ class _CompanyBottomNavigationScreenState extends State<CompanyBottomNavigationS
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Provider.of<bottomcontroller>(context).screens[Provider.of<bottomcontroller>(context).selectedindex],
+      body: Provider.of<CompanyBottomController>(context).screens[Provider.of<CompanyBottomController>(context).selectedIndex],
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(20),
         child: Container(
@@ -25,8 +25,8 @@ class _CompanyBottomNavigationScreenState extends State<CompanyBottomNavigationS
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), color: Colors.blueGrey),
           child: BottomNavigationBar(
               backgroundColor: Colors.blueGrey,
-              currentIndex: Provider.of<bottomcontroller>(context).selectedindex,
-              onTap: Provider.of<bottomcontroller>(context, listen: false).onitemtap,
+              currentIndex: Provider.of<CompanyBottomController>(context).selectedIndex,
+              onTap: Provider.of<CompanyBottomController>(context, listen: false).onItemTap,
               elevation: 0,
               selectedIconTheme: const IconThemeData(
                 color: Colors.white,

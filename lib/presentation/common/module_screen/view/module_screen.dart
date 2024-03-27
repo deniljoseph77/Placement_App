@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:placement_app/presentation/common/login_screen/view/login_screen.dart';
-void main(){
-  runApp(MaterialApp(home: module_screen(),debugShowCheckedModeBanner: false,));
-}
+
 class module_screen extends StatefulWidget {
   const module_screen({super.key});
 
@@ -18,9 +16,18 @@ class _module_screenState extends State<module_screen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Ports",style: TextStyle(color: Color(0xFF568896),fontSize: 28),),SizedBox(height: 15,),
+            Text(
+              "Ports",
+              style: TextStyle(color: Color(0xFF568896), fontSize: 28),
+            ),
+            SizedBox(
+              height: 15,
+            ),
             MaterialButton(
-              onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => login_screen()));
+              },
               child: Text(
                 "Student",
                 style: TextStyle(fontWeight: FontWeight.bold),
@@ -28,8 +35,12 @@ class _module_screenState extends State<module_screen> {
               shape: StadiumBorder(),
               color: Colors.white10,
               minWidth: 200,
-            ),SizedBox(height: 15,),
-            MaterialButton(shape: StadiumBorder(),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            MaterialButton(
+              shape: StadiumBorder(),
               onPressed: () {},
               child: Text(
                 "Tpo",
@@ -37,10 +48,17 @@ class _module_screenState extends State<module_screen> {
               ),
               minWidth: 200,
               color: Colors.white10,
-            ),SizedBox(height: 15,),
-            MaterialButton(shape:StadiumBorder(),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            MaterialButton(
+              shape: StadiumBorder(),
               onPressed: () {},
-              child: Text("Companies",style: TextStyle(fontWeight: FontWeight.bold),),
+              child: Text(
+                "Companies",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
               minWidth: 200,
               color: Colors.white10,
             )

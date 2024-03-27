@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:placement_app/presentation/common/login_screen/view/login_screen.dart';
 
-import '../../postjob_screen/view/postjob_screen.dart';
 
 class CompanyHomeScreen extends StatelessWidget {
   const CompanyHomeScreen({super.key});
