@@ -19,10 +19,8 @@ class TPOLoginController extends ChangeNotifier {
       log("posTPOLoginData() -> ${resData["status"]}");
       if (resData["status"] == 1) {
         log("token -> ${resData["token"]}");
-        Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-                builder: (context) => TPOBottomNavigationScreen()));
+        Navigator.pushAndRemoveUntil(
+            context, MaterialPageRoute(builder: (context) => TPOBottomNavigationScreen()), (route) => false);
         storeLoginData(resData);
         storeUserToken(resData);
       } else {
@@ -37,6 +35,7 @@ class TPOLoginController extends ChangeNotifier {
     sharedPreferences = await SharedPreferences.getInstance();
     String storeData = jsonEncode(loginReceivedData);
     sharedPreferences.setString(AppConfig.loginDataKey, storeData);
+    sharedPreferences.setBool(AppConfig.tpoLoggedIn, true);
   }
 
   storeUserToken(resData) async {

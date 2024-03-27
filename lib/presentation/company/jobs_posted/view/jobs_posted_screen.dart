@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Jobs_posted_Screen extends StatefulWidget {
-  const Jobs_posted_Screen({super.key});
+class JobsPostedScreen extends StatefulWidget {
+  const JobsPostedScreen({super.key});
 
   @override
-  State<Jobs_posted_Screen> createState() => _Jobs_posted_ScreenState();
+  State<JobsPostedScreen> createState() => _JobsPostedScreenState();
 }
 
-class _Jobs_posted_ScreenState extends State<Jobs_posted_Screen> {
+class _JobsPostedScreenState extends State<JobsPostedScreen> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;

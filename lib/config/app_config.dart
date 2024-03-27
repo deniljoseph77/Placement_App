@@ -7,4 +7,10 @@ class AppConfig {
   static const String loginDataKey = "loginData";
 
   static const String token = "token";
+
+  static const String studentLoggedIn = "studentLoggedIn";
+
+  static const String companyLoggedIn = "companyLoggedIn";
+
+  static const String tpoLoggedIn = "tpoLoggedIn";
 }
