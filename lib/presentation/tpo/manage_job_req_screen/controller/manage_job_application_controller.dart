@@ -25,11 +25,13 @@ class TPOManageJobController extends ChangeNotifier {
   onReject(BuildContext context, {int? id}) {
     TPOManageJobService.rejectApplication(id).then((data) {
       if (data["status"] == 1) {
-        AppUtils.oneTimeSnackBar("Application has Rejected", context: context);
+        var message = data["msg"];
+        AppUtils.oneTimeSnackBar(message, context: context);
       } else {
         AppUtils.oneTimeSnackBar("Error: Application Can't be Rejected ",
             context: context);
       }
+      notifyListeners();
     });
   }
 
@@ -42,6 +44,7 @@ class TPOManageJobController extends ChangeNotifier {
         AppUtils.oneTimeSnackBar("Application hasn't Approved",
             context: context);
       }
+      notifyListeners();
     });
   }
 }

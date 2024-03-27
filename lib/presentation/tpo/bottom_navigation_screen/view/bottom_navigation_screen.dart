@@ -3,6 +3,7 @@ import 'package:placement_app/core/constants/color_constants.dart';
 import 'package:placement_app/presentation/tpo/bottom_navigation_screen/controller/bottom_navigation_controller.dart';
 import 'package:placement_app/presentation/tpo/manage_company_screen/view/manage_company_screen.dart';
 import 'package:placement_app/presentation/tpo/manage_job_req_screen/view/manage_request_screen.dart';
+import 'package:placement_app/presentation/tpo/schedul_interview_screen/view/interview_scrn.dart';
 import 'package:placement_app/presentation/tpo/tpo_manager_student_screen/view/tpo_manage_student.dart';
 import 'package:provider/provider.dart';
 
@@ -19,7 +20,8 @@ class TPOBottomNavigationScreen extends StatelessWidget {
           children: const [
             TPOManageStudentScreen(),
             TPOManageCompanyScreen(),
-            TPOManageJobScreen()
+            TPOManageJobScreen(),
+            InterviewScheduleScreen()
           ],
         );
       }),
@@ -57,6 +59,8 @@ class TPOBottomNavigationScreen extends StatelessWidget {
                     icon: Icon(Icons.domain), label: "Manage Company"),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.contact_page), label: "Manage Request"),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.timer), label: "Interview"),
               ]),
         );
       }),

@@ -12,6 +12,7 @@ import 'package:placement_app/presentation/students/student_login_screen/control
 import 'package:placement_app/presentation/tpo/bottom_navigation_screen/controller/bottom_navigation_controller.dart';
 import 'package:placement_app/presentation/tpo/manage_company_screen/controller/manage_company_controller.dart';
 import 'package:placement_app/presentation/tpo/manage_job_req_screen/controller/manage_job_application_controller.dart';
+import 'package:placement_app/presentation/tpo/schedul_interview_screen/controller/interview_controller.dart';
 import 'package:placement_app/presentation/tpo/tpo_login_screen/controller/tpo_login_controller.dart';
 import 'package:placement_app/presentation/tpo/tpo_manager_student_screen/controller/tpo_manage_student_controller.dart';
 import 'package:provider/provider.dart';
@@ -34,6 +35,7 @@ void main() {
     ChangeNotifierProvider(create: (context) => JobsPostedController()),
     ChangeNotifierProvider(create: (context) => TPOManageCompanyController()),
     ChangeNotifierProvider(create: (context) => TPOManageJobController()),
+    ChangeNotifierProvider(create: (context) => InterviewScheduleController()),
     // ChangeNotifierProvider(create: (context) => ),
   ], child: const MyApp()));
 }
