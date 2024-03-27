@@ -19,66 +19,35 @@ class _PostJobScreenState extends State<PostJobScreen> {
         padding: const EdgeInsets.only(left: 10, right: 10),
         child: ListView(
           children: [
+            SizedBox(height: 10),
             Text("Company Name"),
             TextField(
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12))),
+              decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(12))),
             ),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 10),
             Text("Position"),
             TextField(
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12))),
+              decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(12))),
             ),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 10),
             Text("Description"),
             TextField(
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12))),
+              decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(12))),
               maxLines: 4,
             ),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 10),
             Text(" Skill Requirement"),
-            TextField(
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)))),
-            SizedBox(
-              height: 20,
-            ),
+            TextField(decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)))),
+            SizedBox(height: 10),
             Text("Location"),
-            TextField(
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)))),
-            SizedBox(
-              height: 20,
-            ),
+            TextField(decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)))),
+            SizedBox(height: 10),
             Text("Salary"),
-            TextField(
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)))),
-            SizedBox(
-              height: 20,
-            ),
+            TextField(decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)))),
+            SizedBox(height: 10),
             Text("Application Deadline"),
-            TextField(
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)))),
-            SizedBox(
-              height: 17,
-            ),
+            TextField(decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)))),
+            SizedBox(height: 17),
             Center(
               child: MaterialButton(
                   color: Colors.blueGrey,
