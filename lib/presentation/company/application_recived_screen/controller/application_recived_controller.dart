@@ -2,8 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:placement_app/core/utils/app_utils.dart';
-import 'package:placement_app/repository/api/company/home_screen/model/student_application_model.dart';
-import 'package:placement_app/repository/api/company/home_screen/service/home_screen_service.dart';
+import 'package:placement_app/repository/api/company/application_recived_screen/model/student_application_model.dart';
+import 'package:placement_app/repository/api/company/application_recived_screen/service/application_recived_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ApplicationRecivedController extends ChangeNotifier {
