@@ -6,7 +6,7 @@ import 'package:placement_app/repository/api/company/home_screen/model/student_a
 import 'package:placement_app/repository/api/company/home_screen/service/home_screen_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class HomeScreenController extends ChangeNotifier {
+class ApplicationRecivedController extends ChangeNotifier {
   StudentApplicationModel studentApplicationModel = StudentApplicationModel();
   late SharedPreferences sharedPreferences;
   bool isLoading = false;
@@ -15,8 +15,8 @@ class HomeScreenController extends ChangeNotifier {
   fetchStudentApplication(context) async {
     isLoading = true;
     notifyListeners();
-    log("HomeScreenController -> fetchStudentApplication() started");
-    HomeScreenService.fetchStudentApplication().then((value) {
+    log("ApplicationRecivedController -> fetchStudentApplication() started");
+    ApplicationRecivedService.fetchStudentApplication().then((value) {
       log("fetchStudentApplication() -> status -> ${value["status"]}");
       if (value["status"] == 1) {
         log("data -> ${value["data"]}");
@@ -27,6 +27,20 @@ class HomeScreenController extends ChangeNotifier {
         AppUtils.oneTimeSnackBar("Error", context: context);
       }
       notifyListeners();
+    });
+  }
+
+  scheduleInterview(BuildContext context, String date, String location, id) {
+    var uId = id;
+    var data = {"date_time": date, "location": location};
+    ApplicationRecivedService.postInterview(data, uId).then((value) {
+      if (value["status"] == 1) {
+        AppUtils.oneTimeSnackBar("Successfully Scheduled Interview",
+            context: context);
+      } else {
+        AppUtils.oneTimeSnackBar("Failed To Scheduled Interview",
+            context: context);
+      }
     });
   }
 }

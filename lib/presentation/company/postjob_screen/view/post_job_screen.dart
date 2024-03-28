@@ -73,7 +73,7 @@ class _PostJobScreenState extends State<PostJobScreen> {
                       requirementController.text.trim(),
                       locationController.text.trim(),
                       salaryController.text.trim(),
-                      DateTime.now().toString(),
+                      deadlineController.text.trim(),
                       context,
                     );
                   },

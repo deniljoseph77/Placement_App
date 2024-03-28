@@ -43,24 +43,6 @@ class StudentApplicationCard extends StatelessWidget {
             )
           ],
         ),
-        // subtitle: Center(
-        //   child: Row(
-        //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        //     children: [
-        //       ElevatedButton.icon(
-        //         onPressed: () {},
-        //         icon: Icon(Icons.cancel_rounded, color: Colors.red),
-        //         label: Text(''),
-        //       ),
-        //       Text(" Schedule Interview"),
-        //       ElevatedButton.icon(
-        //         onPressed: () {},
-        //         icon: Icon(Icons.check, color: Colors.green),
-        //         label: Text(''),
-        //       )
-        //     ],
-        //   ),
-        // ),
       ),
     );
   }

@@ -8,7 +8,10 @@ import '../../config/app_config.dart';
 class ApiHelper {
   static Map<String, String> getApiHeader({String? access, String? dbName}) {
     if (access != null) {
-      return {'Content-Type': 'application/json', 'Authorization': 'Token $access'};
+      return {
+        'Content-Type': 'application/json',
+        'Authorization': 'Token $access'
+      };
     } else if (dbName != null) {
       return {'Content-Type': 'application/json', 'dbName': dbName};
     } else {
@@ -26,7 +29,7 @@ class ApiHelper {
     final url = Uri.parse(AppConfig.baseurl + endPoint);
     log("$url");
     try {
-      var response = await http.get(url,headers: header);
+      var response = await http.get(url, headers: header);
       log("Api Called => status code=${response.statusCode}");
       if (response.statusCode == 200) {
         var decodedData = jsonDecode(response.body);
@@ -44,14 +47,14 @@ class ApiHelper {
   static postData({
     required String endPoint,
     Map<String, String>? header,
-     Map<String, dynamic>? body,
+    Map<String, dynamic>? body,
   }) async {
     log("ApiHelper -> postData()");
     log("body -> $body");
     final url = Uri.parse(AppConfig.baseurl + endPoint);
     log("$url");
     try {
-      var response = await http.post(url, body: body,headers: header);
+      var response = await http.post(url, body: body, headers: header);
       log("Api Called -> status code:${response.statusCode}");
       if (response.statusCode == 200) {
         var data = response.body;
@@ -64,7 +67,8 @@ class ApiHelper {
         return decodedData;
       }
     } catch (e) {
-      log("$e");
+      log("error  $e");
+      rethrow;
     }
   }
 }
