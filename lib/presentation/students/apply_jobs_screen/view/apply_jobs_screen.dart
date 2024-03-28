@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:placement_app/global_widget/student_appbar.dart';
 import 'package:placement_app/presentation/students/apply_jobs_screen/controller/apply_job_controller.dart';
-import 'package:placement_app/presentation/students/apply_jobs_screen/view/widget/apply_jobs_card.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/constants/color_constants.dart';
