@@ -19,7 +19,7 @@ class TPOManageJobService {
   static Future<dynamic> rejectApplication(int? uId) async {
     int id = uId!;
     var data = ApiHelper.postData(
-        endPoint: "tpo/applications/$id/reject_application/",
+        endPoint: "tpo/application/$id/reject_application/",
         header: ApiHelper.getApiHeader(access: await AppUtils.getAccessKey()));
     return data;
   }
