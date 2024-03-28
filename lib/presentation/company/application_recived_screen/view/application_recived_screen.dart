@@ -175,7 +175,7 @@ class _ApplicationRecivedState extends State<ApplicationRecived> {
                                     );
                                   } else {
                                     AppUtils.oneTimeSnackBar(
-                                        "Status Must Approved To Schedule Interview",
+                                        "Status Must be Approved To Schedule Interview",
                                         context: context);
                                   }
                                 },
