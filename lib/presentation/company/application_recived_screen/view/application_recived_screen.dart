@@ -50,7 +50,7 @@ class _ApplicationRecivedState extends State<ApplicationRecived> {
                 : ListView.builder(
                     itemCount: controller.studentApplicationModel.data?.length,
                     itemBuilder: (context, index) {
-                      return Container(
+                      return Card(
                         child: ListTile(
                           title: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,

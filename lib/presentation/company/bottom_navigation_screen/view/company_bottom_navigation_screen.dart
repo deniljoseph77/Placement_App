@@ -11,10 +11,12 @@ class CompanyBottomNavigationScreen extends StatefulWidget {
   const CompanyBottomNavigationScreen({super.key});
 
   @override
-  State<CompanyBottomNavigationScreen> createState() => _CompanyBottomNavigationScreenState();
+  State<CompanyBottomNavigationScreen> createState() =>
+      _CompanyBottomNavigationScreenState();
 }
 
-class _CompanyBottomNavigationScreenState extends State<CompanyBottomNavigationScreen> {
+class _CompanyBottomNavigationScreenState
+    extends State<CompanyBottomNavigationScreen> {
   //int index = 0;
   //var screen =[home_page(),Trainer(),memberlist(),Equipment()];
   late SharedPreferences sharedPreferences;
@@ -55,7 +57,9 @@ class _CompanyBottomNavigationScreenState extends State<CompanyBottomNavigationS
               onTap: () {
                 logout();
                 Navigator.pushAndRemoveUntil(
-                    context, MaterialPageRoute(builder: (context) => GetStarted()), (route) => false);
+                    context,
+                    MaterialPageRoute(builder: (context) => GetStarted()),
+                    (route) => false);
               },
             ),
           ],
@@ -67,11 +71,15 @@ class _CompanyBottomNavigationScreenState extends State<CompanyBottomNavigationS
         padding: const EdgeInsets.all(20),
         child: Container(
           padding: const EdgeInsets.all(5),
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), color: Colors.blueGrey),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15), color: Colors.blueGrey),
           child: BottomNavigationBar(
               backgroundColor: Colors.blueGrey,
-              currentIndex: Provider.of<CompanyBottomController>(context).selectedIndex,
-              onTap: Provider.of<CompanyBottomController>(context, listen: false).onItemTap,
+              currentIndex:
+                  Provider.of<CompanyBottomController>(context).selectedIndex,
+              onTap:
+                  Provider.of<CompanyBottomController>(context, listen: false)
+                      .onItemTap,
               elevation: 0,
               selectedIconTheme: const IconThemeData(
                 color: Colors.white,
@@ -85,10 +93,22 @@ class _CompanyBottomNavigationScreenState extends State<CompanyBottomNavigationS
               showSelectedLabels: true,
               showUnselectedLabels: false,
               items: const [
-                BottomNavigationBarItem(backgroundColor: Colors.blueGrey, icon: Icon(Icons.home), label: "Home"),
                 BottomNavigationBarItem(
-                    backgroundColor: Colors.blueGrey, icon: Icon(Icons.post_add), label: "Post Job"),
-                BottomNavigationBarItem(backgroundColor: Colors.blueGrey, icon: Icon(Icons.person), label: "profile"),
+                    backgroundColor: Colors.blueGrey,
+                    icon: Icon(Icons.home),
+                    label: "Application"),
+                BottomNavigationBarItem(
+                    backgroundColor: Colors.blueGrey,
+                    icon: Icon(Icons.post_add),
+                    label: "Post Job"),
+                BottomNavigationBarItem(
+                    backgroundColor: Colors.blueGrey,
+                    icon: Icon(Icons.list),
+                    label: "Job"),
+                BottomNavigationBarItem(
+                    backgroundColor: Colors.blueGrey,
+                    icon: Icon(Icons.person),
+                    label: "Interviews"),
               ]),
         ),
       ),
