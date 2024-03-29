@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:placement_app/core/constants/color_constants.dart';
 import 'package:placement_app/presentation/students/apply_jobs_screen/view/apply_jobs_screen.dart';
 import 'package:placement_app/presentation/students/bottom_navigation_screen/controller/student_bottom_navigation_controller.dart';
-import 'package:placement_app/presentation/students/home_screen/view/student_home_screen.dart';
+import 'package:placement_app/presentation/students/interview/view/interview_screen.dart';
 import 'package:placement_app/presentation/students/quiz_screen/view/quiz_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +15,7 @@ class StudentBottomNavigationScreen extends StatelessWidget {
       body: Consumer<StudentBottomNavigationController>(
           builder: (context, controller, _) {
         return IndexedStack(
-          children: [MaterialScreen(), ApplyJobScreen(), QuizScreen()],
+          children: [InterviewStatusScrn(), ApplyJobScreen(), QuizScreen()],
           index: controller.currentIndex,
         );
       }),

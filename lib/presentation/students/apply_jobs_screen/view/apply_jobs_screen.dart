@@ -20,7 +20,8 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
   }
 
   fetchData(context) {
-    Provider.of<ApplyJobsController>(context, listen: false).fetchApplyJobs(context);
+    Provider.of<ApplyJobsController>(context, listen: false)
+        .fetchApplyJobs(context);
   }
 
   @override
@@ -39,82 +40,101 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
                     itemCount: controller.applyJobsModel.data?.length,
                     itemBuilder: (context, index) {
                       return
-                      //   ApplyJobsCard(
-                      //   size: size,
-                      //   position: controller.applyJobsModel.data?[index].position,
-                      //   description: controller.applyJobsModel.data?[index].description,
-                      //   deadLine: controller.applyJobsModel.data?[index].deadline.toString(),
-                      //   location: controller.applyJobsModel.data?[index].location,
-                      //   salary: controller.applyJobsModel.data?[index].salary,
-                      //   requirement: controller.applyJobsModel.data?[index].requirements,
-                      //   onPressed: () {
-                      //     Provider.of<ApplyJobsController>(context,listen: false).postApplyJob(context, controller.applyJobsModel.data?[index].id);
-                      //   },
-                      // )
-                        Container(
-                          height: size.height * .34,
-                          width: size.width * .9,
-                          margin: EdgeInsets.only(bottom: 10),
-                          padding: EdgeInsets.only(left: size.width * .03, right: size.width * .03),
-                          child: Card(
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 25, left: 15),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "${controller.applyJobsModel.data?[index].position}",
-                                    style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                          //   ApplyJobsCard(
+                          //   size: size,
+                          //   position: controller.applyJobsModel.data?[index].position,
+                          //   description: controller.applyJobsModel.data?[index].description,
+                          //   deadLine: controller.applyJobsModel.data?[index].deadline.toString(),
+                          //   location: controller.applyJobsModel.data?[index].location,
+                          //   salary: controller.applyJobsModel.data?[index].salary,
+                          //   requirement: controller.applyJobsModel.data?[index].requirements,
+                          //   onPressed: () {
+                          //     Provider.of<ApplyJobsController>(context,listen: false).postApplyJob(context, controller.applyJobsModel.data?[index].id);
+                          //   },
+                          // )
+                          Container(
+                        // height: size.height * .34,
+                        // width: size.width * .9,
+                        margin: EdgeInsets.only(bottom: 10),
+                        padding: EdgeInsets.only(
+                            left: size.width * .03, right: size.width * .03),
+                        child: Card(
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 25, left: 15),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "${controller.applyJobsModel.data?[index].position}",
+                                  style: TextStyle(
+                                      fontSize: 26,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(height: 5),
+                                Text(
+                                  '${controller.applyJobsModel.data?[index].description}',
+                                  maxLines: 2,
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w400,
                                   ),
-                                  SizedBox(height: 5),
-                                  Text(
-                                    '${controller.applyJobsModel.data?[index].description}',
-                                    maxLines: 2,
-                                    style: TextStyle(
+                                ),
+                                SizedBox(height: 5),
+                                Text(
+                                  '${controller.applyJobsModel.data?[index].requirements}',
+                                  style: TextStyle(
                                       fontSize: 20,
-                                      fontWeight: FontWeight.w400,
+                                      fontWeight: FontWeight.w400),
+                                ),
+                                SizedBox(height: 5),
+                                Text(
+                                  '${controller.applyJobsModel.data?[index].location}',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w200),
+                                ),
+                                SizedBox(height: 5),
+                                Text(
+                                  'Salary: ${controller.applyJobsModel.data?[index].salary}',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w200),
+                                ),
+                                Text(
+                                  'Last Date:${controller.applyJobsModel.data?[index].deadline}',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w200),
+                                ),
+                                Text(
+                                    "Company Id : ${controller.applyJobsModel.data?[index].postedBy}"),
+                                SizedBox(height: 5),
+                                SizedBox(height: 10),
+                                Center(
+                                  child: MaterialButton(
+                                    color: ColorTheme.primary,
+                                    child: Text(
+                                      "APPLY NOW",
+                                      style: TextStyle(
+                                          color: ColorTheme.white,
+                                          fontWeight: FontWeight.bold),
                                     ),
+                                    height: size.height * .06,
+                                    onPressed: () {
+                                      Provider.of<ApplyJobsController>(context,
+                                              listen: false)
+                                          .postApplyJob(
+                                              context,
+                                              controller.applyJobsModel
+                                                  .data?[index].id);
+                                    },
                                   ),
-                                  SizedBox(height: 5),
-                                  Text(
-                                    '${controller.applyJobsModel.data?[index].requirements}',
-                                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
-                                  ),
-                                  SizedBox(height: 5),
-                                  Text(
-                                    '${controller.applyJobsModel.data?[index].location}',
-                                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w200),
-                                  ),
-                                  SizedBox(height: 5),
-                                  Text(
-                                    'Salary: ${controller.applyJobsModel.data?[index].salary}',
-                                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w200),
-                                  ),
-                                  Text(
-                                    'Last Date:${controller.applyJobsModel.data?[index].deadline}',
-                                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w200),
-                                  ),
-                                  SizedBox(height: 5),
-                                  SizedBox(height: 10),
-                                  Center(
-                                    child: MaterialButton(
-                                      color: ColorTheme.primary,
-                                      child: Text(
-                                        "APPLY NOW",
-                                        style: TextStyle(color: ColorTheme.white, fontWeight: FontWeight.bold),
-                                      ),
-                                      height: size.height * .06,
-                                      onPressed: () {
-                                        Provider.of<ApplyJobsController>(context,listen: false).postApplyJob(context, controller.applyJobsModel.data?[index].id);
-                                      },
-                                    ),
-                                  )
-                                ],
-                              ),
+                                )
+                              ],
                             ),
                           ),
-                        )
-                      ;
+                        ),
+                      );
                     }),
               );
       }),
