@@ -68,12 +68,12 @@ class _PostJobScreenState extends State<PostJobScreen> {
                   shape: StadiumBorder(),
                   onPressed: () {
                     Provider.of<PostJobController>(context, listen: false).onPostJob(
-                      positionController.text.trim(),
-                      descriptionController.text.trim(),
-                      requirementController.text.trim(),
-                      locationController.text.trim(),
-                      salaryController.text.trim(),
-                      deadlineController.text.trim(),
+                      positionController.text,
+                      descriptionController.text,
+                      requirementController.text,
+                      locationController.text,
+                      salaryController.text,
+                      deadlineController.text,
                       context,
                     );
                   },

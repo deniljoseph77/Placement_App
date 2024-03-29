@@ -13,10 +13,33 @@ class ApiHelper {
         'Authorization': 'Token $access'
       };
     } else if (dbName != null) {
-      return {'Content-Type': 'application/json', 'dbName': dbName};
+      return {
+        'Content-Type': 'application/json',
+        'dbName': dbName
+      };
     } else {
       return {
         'Content-Type': 'application/json',
+      };
+    }
+  }
+
+  static Map<String, String> getApiHeaderForException(
+      {String? access, String? dbName}) {
+    if (access != null) {
+      return {
+        // 'Content-Type': 'application/json',
+        'Accept': '*/*',
+        'Authorization': 'Token $access'
+      };
+    } else if (dbName != null) {
+      return {
+        // 'Content-Type': 'application/json',
+        'dbName': dbName
+      };
+    } else {
+      return {
+        // 'Content-Type': 'application/json',
       };
     }
   }

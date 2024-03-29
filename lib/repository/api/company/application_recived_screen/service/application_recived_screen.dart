@@ -24,7 +24,7 @@ class ApplicationRecivedService {
           endPoint: "company/applications/$id/schedule_interview/",
           body: data,
           header:
-              ApiHelper.getApiHeader(access: await AppUtils.getAccessKey()));
+              ApiHelper.getApiHeaderForException(access: await AppUtils.getAccessKey()));
       return decodedData;
     } catch (e) {
       log("$e");

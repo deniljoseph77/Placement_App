@@ -8,7 +8,7 @@ class PostJobService {
     log("PostJobService -> started");
     try {
       var decodedData = await ApiHelper.postData(
-          endPoint: "company/job/", body: data, header: ApiHelper.getApiHeader(access: await AppUtils.getAccessKey()));
+          endPoint: "company/job/", body: data, header: ApiHelper.getApiHeaderForException(access: await AppUtils.getAccessKey()));
       return decodedData;
     } catch (e) {
       log("$e");
