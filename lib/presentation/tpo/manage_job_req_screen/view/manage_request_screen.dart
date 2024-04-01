@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:placement_app/presentation/tpo/manage_job_req_screen/controller/manage_job_application_controller.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../core/constants/color_constants.dart';
+
 class TPOManageJobScreen extends StatefulWidget {
   const TPOManageJobScreen({super.key});
 
@@ -30,7 +32,17 @@ class _TPOManageJobScreenState extends State<TPOManageJobScreen> {
               } else {
                 return Consumer<TPOManageJobController>(
                   builder: (context, tJControl, child) {
-                    return ListView.builder(
+                    return tJControl.tpoManageJobModel.data == null ||
+                    tJControl.tpoManageJobModel.data!.isEmpty ?
+                    Center(
+                      child: Text(
+                        "No Data Found",
+                        style: TextStyle(
+                            color: ColorTheme.red,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ): ListView.builder(
                         itemCount: tJControl.tpoManageJobModel.data?.length,
                         itemBuilder: (context, index) {
                           return Container(
@@ -43,11 +55,11 @@ class _TPOManageJobScreenState extends State<TPOManageJobScreen> {
                                 children: [
                                   Row(
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
+                                    MainAxisAlignment.spaceAround,
                                     children: [
                                       Column(
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                         children: [
                                           Text("Name"),
                                           Text("Phone No"),
@@ -76,7 +88,7 @@ class _TPOManageJobScreenState extends State<TPOManageJobScreen> {
                                       Flexible(
                                         child: Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                           children: [
                                             Text(
                                                 ":${tJControl.tpoManageJobModel.data?[index].student?.firstName} ${tJControl.tpoManageJobModel.data?[index].student?.lastName}"),
@@ -89,11 +101,11 @@ class _TPOManageJobScreenState extends State<TPOManageJobScreen> {
                                             Text(
                                                 ":${tJControl.tpoManageJobModel.data?[index].job?.description}",
                                                 overflow:
-                                                    TextOverflow.ellipsis),
+                                                TextOverflow.ellipsis),
                                             Text(
                                                 ":${tJControl.tpoManageJobModel.data?[index].job?.requirements}",
                                                 overflow:
-                                                    TextOverflow.ellipsis),
+                                                TextOverflow.ellipsis),
                                             Text(
                                                 ":${tJControl.tpoManageJobModel.data?[index].job?.salary}"),
                                             Text(
@@ -114,18 +126,18 @@ class _TPOManageJobScreenState extends State<TPOManageJobScreen> {
                                   Divider(),
                                   Row(
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
+                                    MainAxisAlignment.spaceEvenly,
                                     children: [
                                       ElevatedButton.icon(
                                         onPressed: () {
                                           Provider.of<TPOManageJobController>(
-                                                  context,
-                                                  listen: false)
+                                              context,
+                                              listen: false)
                                               .onReject(context,
-                                                  id: tJControl
-                                                      .tpoManageJobModel
-                                                      .data?[index]
-                                                      .id);
+                                              id: tJControl
+                                                  .tpoManageJobModel
+                                                  .data?[index]
+                                                  .id);
                                           setState(() {
                                             fetchData();
                                           });
@@ -140,13 +152,13 @@ class _TPOManageJobScreenState extends State<TPOManageJobScreen> {
                                       ElevatedButton.icon(
                                         onPressed: () {
                                           Provider.of<TPOManageJobController>(
-                                                  context,
-                                                  listen: false)
+                                              context,
+                                              listen: false)
                                               .onApprove(context,
-                                                  id: tJControl
-                                                      .tpoManageJobModel
-                                                      .data?[index]
-                                                      .id);
+                                              id: tJControl
+                                                  .tpoManageJobModel
+                                                  .data?[index]
+                                                  .id);
                                           setState(() {
                                             fetchData();
                                           });
@@ -164,6 +176,7 @@ class _TPOManageJobScreenState extends State<TPOManageJobScreen> {
                             ),
                           );
                         });
+
                   },
                 );
               }

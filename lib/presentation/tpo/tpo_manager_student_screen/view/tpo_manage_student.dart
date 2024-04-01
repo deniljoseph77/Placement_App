@@ -82,7 +82,7 @@ class _TPOManageStudentScreenState extends State<TPOManageStudentScreen> {
                               "No Data Found",
                               style: TextStyle(
                                   color: ColorTheme.red,
-                                  fontSize: 30,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.bold),
                             ),
                           )

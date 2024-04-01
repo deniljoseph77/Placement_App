@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:placement_app/presentation/tpo/schedul_interview_screen/controller/interview_controller.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../core/constants/color_constants.dart';
+
 class InterviewScheduleScreen extends StatelessWidget {
   const InterviewScheduleScreen({super.key});
 
@@ -26,7 +28,17 @@ class InterviewScheduleScreen extends StatelessWidget {
             } else {
               return Consumer<InterviewScheduleController>(
                   builder: (context, control, child) {
-                return ListView.builder(
+                return control.interviewScheduleModel.data == null ||
+                    control.interviewScheduleModel.data!.isEmpty ?
+                Center(
+                  child: Text(
+                    "No Data Found",
+                    style: TextStyle(
+                        color: ColorTheme.red,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ):ListView.builder(
                     itemCount: control.interviewScheduleModel.data?.length,
                     itemBuilder: (context, index) {
                       return Container(
@@ -39,11 +51,11 @@ class InterviewScheduleScreen extends StatelessWidget {
                             children: [
                               Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
+                                MainAxisAlignment.spaceAround,
                                 children: [
                                   Column(
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    CrossAxisAlignment.start,
                                     children: [
                                       Text("Name"),
                                       Text("Applied For"),
@@ -71,7 +83,7 @@ class InterviewScheduleScreen extends StatelessWidget {
                                   Flexible(
                                     child: Column(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                             ":${control.interviewScheduleModel.data?[index].application?.student?.firstName} ${control.interviewScheduleModel.data?[index].application?.student?.lastName}"),
@@ -111,7 +123,7 @@ class InterviewScheduleScreen extends StatelessWidget {
                               Divider(),
                               Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Column(
                                     children: [
@@ -138,7 +150,7 @@ class InterviewScheduleScreen extends StatelessWidget {
                                   Flexible(
                                     child: Column(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: [
                                         Text(""),
                                         Text(
