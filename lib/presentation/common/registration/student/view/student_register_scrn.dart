@@ -16,11 +16,11 @@ class StudentRegister extends StatefulWidget {
 
 class _StudentRegisterState extends State<StudentRegister> {
   var usernamControl = TextEditingController();
-    var firstnameControl = TextEditingController();
-    var lastnameControl = TextEditingController();
-    var phoneControl = TextEditingController();
-    var mailControl = TextEditingController();
-    var passControl = TextEditingController();
+  var firstnameControl = TextEditingController();
+  var lastnameControl = TextEditingController();
+  var phoneControl = TextEditingController();
+  var mailControl = TextEditingController();
+  var passControl = TextEditingController();
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -109,6 +109,12 @@ class _StudentRegisterState extends State<StudentRegister> {
                         mailControl.text,
                         passControl.text,
                       );
+                      usernamControl.clear();
+                      firstnameControl.clear();
+                      lastnameControl.clear();
+                      phoneControl.clear();
+                      mailControl.clear();
+                      passControl.clear();
                     },
                     minWidth: width * .5,
                     height: width * .15,
@@ -127,8 +133,10 @@ class _StudentRegisterState extends State<StudentRegister> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => StudentLoginScreen()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => StudentLoginScreen()));
                   },
                   child: RichText(
                       text: TextSpan(

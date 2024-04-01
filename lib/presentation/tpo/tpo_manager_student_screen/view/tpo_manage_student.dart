@@ -35,7 +35,9 @@ class _TPOManageStudentScreenState extends State<TPOManageStudentScreen> {
                       (route) => false);
                 },
                 icon: Icon(Icons.logout_rounded)),
-                SizedBox(width: 10,)
+            SizedBox(
+              width: 10,
+            )
           ],
         ),
         // drawer: Drawer(child: Consumer<TPOManageStudentController>(
@@ -73,24 +75,24 @@ class _TPOManageStudentScreenState extends State<TPOManageStudentScreen> {
                 return Consumer<TPOManageStudentController>(
                   builder: (context, tmsControl, child) {
                     return Padding(
-                      padding: const EdgeInsets.all(18.0),
-                      child: ListView.builder(
-                        itemCount:
-                            tmsControl.tpoManageStudentModel.data?.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return TPOStudentCard(
-                            fullName:
-                                "${tmsControl.tpoManageStudentModel.data?[index].firstName} ${tmsControl.tpoManageStudentModel.data?[index].lastName}",
-                            phone:
-                                "${tmsControl.tpoManageStudentModel.data?[index].phoneNo}",
-                            username:
-                                '${tmsControl.tpoManageStudentModel.data?[index].username}',
-                            email:
-                                '${tmsControl.tpoManageStudentModel.data?[index].emailAddress}',
+                            padding: const EdgeInsets.all(18.0),
+                            child: ListView.builder(
+                              itemCount:
+                                  tmsControl.tpoManageStudentModel.data?.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return TPOStudentCard(
+                                  fullName:
+                                      "${tmsControl.tpoManageStudentModel.data?[index].firstName} ${tmsControl.tpoManageStudentModel.data?[index].lastName}",
+                                  phone:
+                                      "${tmsControl.tpoManageStudentModel.data?[index].phoneNo}",
+                                  username:
+                                      '${tmsControl.tpoManageStudentModel.data?[index].username}',
+                                  email:
+                                      '${tmsControl.tpoManageStudentModel.data?[index].emailAddress}',
+                                );
+                              },
+                            ),
                           );
-                        },
-                      ),
-                    );
                   },
                 );
               }
