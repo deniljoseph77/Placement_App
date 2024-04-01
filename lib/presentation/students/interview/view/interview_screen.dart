@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../config/app_config.dart';
+import '../../../../core/constants/color_constants.dart';
 
 class InterviewStatusScrn extends StatefulWidget {
   const InterviewStatusScrn({super.key});
@@ -95,33 +96,42 @@ class _InterviewStatusScrnState extends State<InterviewStatusScrn> {
                 } else {
                   return Consumer<InterviewController>(
                     builder: (context, iControl, child) {
-                      return ListView.builder(
-                        itemCount: iControl.interviewModel.data?.length,
-                        itemBuilder: (context, index) {
-                        return Card(
-                            child: ListTile(
-                          title: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                  "Date : ${iControl.interviewModel.data?[index].dateTime}"),
-                              Text(
-                                  "Place : ${iControl.interviewModel.data?[index].location}")
-                            ],
-                          ),
-                          subtitle: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                  "Application Id : ${iControl.interviewModel.data?[index].application}"),
-                              Text(
-                                  "Company Id : ${iControl.interviewModel.data?[index].company}")
-                            ],
-                          ),
-                        ));
-                      });
+                      return iControl.interviewModel.data == null ||
+                      iControl.interviewModel.data!.isEmpty ? Center(
+                        child: Text(
+                          "No Data Found",
+                          style: TextStyle(
+                              color: ColorTheme.red,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ):ListView.builder(
+                          itemCount: iControl.interviewModel.data?.length,
+                          itemBuilder: (context, index) {
+                            return Card(
+                                child: ListTile(
+                                  title: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                          "Date : ${iControl.interviewModel.data?[index].dateTime}"),
+                                      Text(
+                                          "Place : ${iControl.interviewModel.data?[index].location}")
+                                    ],
+                                  ),
+                                  subtitle: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                          "Application Id : ${iControl.interviewModel.data?[index].application}"),
+                                      Text(
+                                          "Company Id : ${iControl.interviewModel.data?[index].company}")
+                                    ],
+                                  ),
+                                ));
+                          });
                     },
                   );
                 }
