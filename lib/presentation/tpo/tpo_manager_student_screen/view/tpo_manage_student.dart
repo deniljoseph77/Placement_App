@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:placement_app/core/constants/color_constants.dart';
 import 'package:placement_app/presentation/tpo/tpo_manager_student_screen/controller/tpo_manage_student_controller.dart';
 import 'package:placement_app/presentation/tpo/tpo_manager_student_screen/view/widget/tpo_user_card.dart';
 import 'package:provider/provider.dart';
@@ -35,7 +36,9 @@ class _TPOManageStudentScreenState extends State<TPOManageStudentScreen> {
                       (route) => false);
                 },
                 icon: Icon(Icons.logout_rounded)),
-                SizedBox(width: 10,)
+            SizedBox(
+              width: 10,
+            )
           ],
         ),
         // drawer: Drawer(child: Consumer<TPOManageStudentController>(
@@ -72,25 +75,35 @@ class _TPOManageStudentScreenState extends State<TPOManageStudentScreen> {
               } else {
                 return Consumer<TPOManageStudentController>(
                   builder: (context, tmsControl, child) {
-                    return Padding(
-                      padding: const EdgeInsets.all(18.0),
-                      child: ListView.builder(
-                        itemCount:
-                            tmsControl.tpoManageStudentModel.data?.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return TPOStudentCard(
-                            fullName:
-                                "${tmsControl.tpoManageStudentModel.data?[index].firstName} ${tmsControl.tpoManageStudentModel.data?[index].lastName}",
-                            phone:
-                                "${tmsControl.tpoManageStudentModel.data?[index].phoneNo}",
-                            username:
-                                '${tmsControl.tpoManageStudentModel.data?[index].username}',
-                            email:
-                                '${tmsControl.tpoManageStudentModel.data?[index].emailAddress}',
+                    return tmsControl.tpoManageStudentModel.data == null
+                        ? Center(
+                            child: Text(
+                              "No Data Found",
+                              style: TextStyle(
+                                  color: ColorTheme.red,
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          )
+                        : Padding(
+                            padding: const EdgeInsets.all(18.0),
+                            child: ListView.builder(
+                              itemCount:
+                                  tmsControl.tpoManageStudentModel.data?.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return TPOStudentCard(
+                                  fullName:
+                                      "${tmsControl.tpoManageStudentModel.data?[index].firstName} ${tmsControl.tpoManageStudentModel.data?[index].lastName}",
+                                  phone:
+                                      "${tmsControl.tpoManageStudentModel.data?[index].phoneNo}",
+                                  username:
+                                      '${tmsControl.tpoManageStudentModel.data?[index].username}',
+                                  email:
+                                      '${tmsControl.tpoManageStudentModel.data?[index].emailAddress}',
+                                );
+                              },
+                            ),
                           );
-                        },
-                      ),
-                    );
                   },
                 );
               }

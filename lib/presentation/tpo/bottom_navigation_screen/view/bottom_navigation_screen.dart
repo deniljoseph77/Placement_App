@@ -17,7 +17,7 @@ class TPOBottomNavigationScreen extends StatelessWidget {
           builder: (context, controller, _) {
         return IndexedStack(
           index: controller.currentIndex,
-          children: const [
+          children:  [
             TPOManageStudentScreen(),
             TPOManageCompanyScreen(),
             TPOManageJobScreen(),
@@ -28,7 +28,7 @@ class TPOBottomNavigationScreen extends StatelessWidget {
       bottomNavigationBar: Consumer<TPOBottomNavigationController>(
           builder: (context, controller, _) {
         return Container(
-          padding: const EdgeInsets.all(5),
+          padding:  EdgeInsets.all(5),
           margin: EdgeInsets.all(20),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15), color: Colors.blueGrey),

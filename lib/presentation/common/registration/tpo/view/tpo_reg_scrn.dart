@@ -90,7 +90,8 @@ class _TpoRegistrationState extends State<TpoRegistration> {
                 ),
                 MaterialButton(
                     onPressed: () {
-                      Provider.of<TpoRegisterController>(context, listen: false).onRegister(
+                      Provider.of<TpoRegisterController>(context, listen: false)
+                          .onRegister(
                         context,
                         usernameControl.text,
                         nameControl.text,
@@ -98,12 +99,18 @@ class _TpoRegistrationState extends State<TpoRegistration> {
                         mailControl.text,
                         passControl.text,
                       );
+                      usernameControl.clear();
+                      nameControl.clear();
+                      phoneControl.clear();
+                      mailControl.clear();
+                      passControl.clear();
                     },
                     minWidth: width * .5,
                     height: width * .15,
                     color: ColorTheme.darkClr,
                     textColor: ColorTheme.white,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)),
                     child: Center(
                       child: Text(
                         "Register",
@@ -115,13 +122,22 @@ class _TpoRegistrationState extends State<TpoRegistration> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => TPOLoginScreen()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => TPOLoginScreen()));
                   },
                   child: RichText(
-                      text: TextSpan(style: TextStyle(color: Colors.black, fontSize: 16), children: [
-                    TextSpan(text: "Already registered?  "),
-                    TextSpan(text: "Login Here", style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF568896)))
-                  ])),
+                      text: TextSpan(
+                          style: TextStyle(color: Colors.black, fontSize: 16),
+                          children: [
+                        TextSpan(text: "Already registered?  "),
+                        TextSpan(
+                            text: "Login Here",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF568896)))
+                      ])),
                 ),
               ],
             ),

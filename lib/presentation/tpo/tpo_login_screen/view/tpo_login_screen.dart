@@ -77,6 +77,8 @@ class _TPOLoginScreenState extends State<TPOLoginScreen> {
               onPressed: () {
                 Provider.of<TPOLoginController>(context, listen: false)
                     .onLogin(usernameController.text.trim(), passwordController.text.trim(), context);
+                    usernameController.clear();
+                    passwordController.clear();
               },
               minWidth: width * .5,
               height: width * .15,
