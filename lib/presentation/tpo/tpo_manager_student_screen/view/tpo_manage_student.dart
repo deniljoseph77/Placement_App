@@ -39,9 +39,6 @@ class _TPOManageStudentScreenState extends State<TPOManageStudentScreen> {
             SizedBox(
               width: 10,
             )
-            SizedBox(
-              width: 10,
-            )
           ],
         ),
         // drawer: Drawer(child: Consumer<TPOManageStudentController>(
@@ -78,7 +75,8 @@ class _TPOManageStudentScreenState extends State<TPOManageStudentScreen> {
               } else {
                 return Consumer<TPOManageStudentController>(
                   builder: (context, tmsControl, child) {
-                    return tmsControl.tpoManageStudentModel.data == null
+                    return tmsControl.tpoManageStudentModel.data == null ||
+                            tmsControl.tpoManageStudentModel.data!.isEmpty
                         ? Center(
                             child: Text(
                               "No Data Found",
