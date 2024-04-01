@@ -30,9 +30,9 @@ class ApplicationStatusModel {
 
 class Datum {
     int? id;
-    Student? student;
+    String? student;
     DateTime? appliedDate;
-    Status? status;
+    String? status;
     int? job;
 
     Datum({
@@ -45,49 +45,17 @@ class Datum {
 
     factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["id"],
-        student: studentValues.map[json["student"]]!,
+        student: json["student"],
         appliedDate: json["applied_date"] == null ? null : DateTime.parse(json["applied_date"]),
-        status: statusValues.map[json["status"]]!,
+        status: json["status"],
         job: json["job"],
     );
 
     Map<String, dynamic> toJson() => {
         "id": id,
-        "student": studentValues.reverse[student],
+        "student": student,
         "applied_date": appliedDate?.toIso8601String(),
-        "status": statusValues.reverse[status],
+        "status": status,
         "job": job,
     };
-}
-
-enum Status {
-    APPROVED,
-    PENDING,
-    REJECTED
-}
-
-final statusValues = EnumValues({
-    "APPROVED": Status.APPROVED,
-    "PENDING": Status.PENDING,
-    "REJECTED": Status.REJECTED
-});
-
-enum Student {
-    ATHUL
-}
-
-final studentValues = EnumValues({
-    "Athul": Student.ATHUL
-});
-
-class EnumValues<T> {
-    Map<String, T> map;
-    late Map<T, String> reverseMap;
-
-    EnumValues(this.map);
-
-    Map<T, String> get reverse {
-        reverseMap = map.map((k, v) => MapEntry(v, k));
-        return reverseMap;
-    }
 }

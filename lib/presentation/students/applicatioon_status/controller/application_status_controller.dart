@@ -6,16 +6,12 @@ import 'package:placement_app/repository/api/student/application_status/model/ap
 import 'package:placement_app/repository/api/student/application_status/service/application_satatus_service.dart';
 
 class ApplicationStatusController extends ChangeNotifier {
-  bool isloading = false;
   ApplicationStatusModel applicationStatusModel = ApplicationStatusModel();
   fetchData(context) {
-    isloading = true;
-    notifyListeners();
     ApplicationStatusService.fetchApplicationStatus().then((value) {
       if (value['status'] == 1) {
         log("ApplicationStatusController>>>>>>>>>>${value['data']}");
         applicationStatusModel = ApplicationStatusModel.fromJson(value);
-        isloading = false;
       } else {
         AppUtils.oneTimeSnackBar("Error: data not found", context: context);
       }
