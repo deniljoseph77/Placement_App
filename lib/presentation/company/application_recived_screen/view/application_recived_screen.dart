@@ -138,17 +138,22 @@ class _ApplicationRecivedState extends State<ApplicationRecived> {
                                                       child: MaterialButton(
                                                     onPressed: () {
                                                       Provider.of<ApplicationRecivedController>(
-                                                              context,listen: false)
+                                                              context,
+                                                              listen: false)
                                                           .scheduleInterview(
                                                               context,
                                                               dateController
                                                                   .text,
                                                               locController
                                                                   .text,
-                                                               controller
+                                                              controller
                                                                   .studentApplicationModel
                                                                   .data?[index]
                                                                   .id);
+                                                      dateController.clear();
+                                                      locController.clear();
+                                                      Navigator.of(context)
+                                                          .pop();
                                                     },
                                                     child: Center(
                                                       child: Text(

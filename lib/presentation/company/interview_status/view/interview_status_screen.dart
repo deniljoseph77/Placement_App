@@ -29,6 +29,7 @@ class InterviewStatusScreen extends StatelessWidget {
                       return Card(
                         child: ListTile(
                           title: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 "${isControl.interviewStatusModel.data?[index].application}",
@@ -41,6 +42,7 @@ class InterviewStatusScreen extends StatelessWidget {
                             ],
                           ),
                           subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                   "${isControl.interviewStatusModel.data?[index].dateTime}"),

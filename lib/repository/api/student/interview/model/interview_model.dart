@@ -30,7 +30,7 @@ class InterviewModel {
 
 class Datum {
     int? id;
-    DateTime? dateTime;
+    String? dateTime;
     String? location;
     int? company;
     int? application;
@@ -45,7 +45,7 @@ class Datum {
 
     factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["id"],
-        dateTime: json["date_time"] == null ? null : DateTime.parse(json["date_time"]),
+        dateTime: json["date_time"],
         location: json["location"],
         company: json["company"],
         application: json["application"],
@@ -53,7 +53,7 @@ class Datum {
 
     Map<String, dynamic> toJson() => {
         "id": id,
-        "date_time": dateTime?.toIso8601String(),
+        "date_time": dateTime,
         "location": location,
         "company": company,
         "application": application,

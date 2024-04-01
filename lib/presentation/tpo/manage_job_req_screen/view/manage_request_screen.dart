@@ -63,10 +63,11 @@ class _TPOManageJobScreenState extends State<TPOManageJobScreen> {
                                           ),
                                           Text("Applied Data"),
                                           Text(
-                                            "Status",
+                                            " ${tJControl.tpoManageJobModel.data?[index].status}",
                                             style: TextStyle(
+                                                color: Colors.red,
                                                 fontWeight: FontWeight.bold),
-                                          )
+                                          ),
                                         ],
                                       ),
                                       SizedBox(
@@ -104,12 +105,7 @@ class _TPOManageJobScreenState extends State<TPOManageJobScreen> {
                                             ),
                                             Text(
                                                 ":${tJControl.tpoManageJobModel.data?[index].appliedDate}"),
-                                            Text(
-                                              ":${tJControl.tpoManageJobModel.data?[index].status}",
-                                              style: TextStyle(
-                                                  color: Colors.red,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
+                                            Text("")
                                           ],
                                         ),
                                       ),

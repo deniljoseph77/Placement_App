@@ -14,12 +14,14 @@ class AppUtils {
     if (sharedPreferences.get(AppConfig.token) != null) {
       final access =
           jsonDecode(sharedPreferences.get(AppConfig.token) as String);
+      log("access key =================  $access");
       return access;
     } else {
       return null;
     }
   }
 
+  
   static oneTimeSnackBar(
     String? message, {
     int time = 2,

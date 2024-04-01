@@ -34,7 +34,13 @@ class ApplyJobsController extends ChangeNotifier {
         log("data -> ${value["status"]}");
         AppUtils.oneTimeSnackBar("Applied", context: context);
       } else {
-        AppUtils.oneTimeSnackBar("Error", context: context);
+       if (value['msg'] == null) {
+          AppUtils.oneTimeSnackBar("Failed To Apply",
+              context: context);
+        } else {
+          var message = value['msg'];
+          AppUtils.oneTimeSnackBar(message, context: context);
+        }
       }
       notifyListeners();
     });

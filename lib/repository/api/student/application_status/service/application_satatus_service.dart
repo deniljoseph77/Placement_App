@@ -3,14 +3,14 @@ import 'dart:developer';
 import 'package:placement_app/core/utils/app_utils.dart';
 import 'package:placement_app/repository/helper/api_helper.dart';
 
-class InterviewService {
-  static Future<dynamic> fetchData() async {
+class ApplicationStatusService {
+  static Future<dynamic> fetchApplicationStatus() async {
     try {
-      var decodeddData = ApiHelper.getData(
-          endPoint: "student/interviews/",
+      var data = ApiHelper.getData(
+          endPoint: "student/applicationstatus/",
           header:
               ApiHelper.getApiHeader(access: await AppUtils.getAccessKey()));
-      return decodeddData;
+      return data;
     } catch (e) {
       log("$e");
     }

@@ -53,7 +53,7 @@ class _JobsPostedScreenState extends State<JobsPostedScreen> {
                             .postedJobsModel.data?[index].requirements,
                         salary: controller.postedJobsModel.data?[index].salary,
                         lastDate:
-                            controller.postedJobsModel.data?[index].deadline,
+                            controller.postedJobsModel.data?[index].deadline.toString(),
                       );
                     });
           }),

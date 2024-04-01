@@ -3,7 +3,6 @@ import 'package:placement_app/core/constants/global_text_styles.dart';
 import 'package:placement_app/global_widget/student_appbar.dart';
 import 'package:placement_app/presentation/common/get%20started%20scrn/get_started.dart';
 import 'package:placement_app/presentation/students/interview/controller/interview_controller.dart';
-import 'package:placement_app/presentation/students/profile_Screen/view/profile_Screen_view.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -32,28 +31,31 @@ class _InterviewStatusScrnState extends State<InterviewStatusScrn> {
             backgroundColor: Colors.white,
             child: ListView(
               children: [
-                UserAccountsDrawerHeader(
-                    decoration: BoxDecoration(color: Colors.blueGrey),
-                    currentAccountPicture: CircleAvatar(
-                      child: Icon(Icons.person_rounded),
-                      backgroundColor: Colors.white,
-                    ),
-                    accountName:
-                        Text("Name", style: GLTextStyles.labeltxtBlk20),
-                    accountEmail: Text("")),
-                ListTile(
-                  leading: Icon(Icons.person),
-                  title: Text(
-                    "Profile",
-                    style: GLTextStyles.labeltxtBlk18,
-                  ),
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ProfileScreenView()));
-                  },
-                ),
+                // UserAccountsDrawerHeader(
+                //     decoration: BoxDecoration(color: Colors.blueGrey),
+                //     currentAccountPicture: Center(
+                //       child: CircleAvatar(
+                //         child: Icon(Icons.person_rounded),
+                //         backgroundColor: Colors.white,
+                //       ),
+                //     ),
+                //     accountName:
+                //         Text("", style: GLTextStyles.labeltxtBlk20),
+                //     accountEmail: Text("")
+                //     ),
+                // ListTile(
+                //   leading: Icon(Icons.person),
+                //   title: Text(
+                //     "Profile",
+                //     style: GLTextStyles.labeltxtBlk18,
+                //   ),
+                //   onTap: () {
+                //     Navigator.push(
+                //         context,
+                //         MaterialPageRoute(
+                //             builder: (context) => ProfileScreenView()));
+                //   },
+                // ),
                 ListTile(
                   leading: Icon(Icons.library_books_rounded),
                   title: Text("Academic Details",
@@ -93,7 +95,9 @@ class _InterviewStatusScrnState extends State<InterviewStatusScrn> {
                 } else {
                   return Consumer<InterviewController>(
                     builder: (context, iControl, child) {
-                      return ListView.builder(itemBuilder: (context, index) {
+                      return ListView.builder(
+                        itemCount: iControl.interviewModel.data?.length,
+                        itemBuilder: (context, index) {
                         return Card(
                             child: ListTile(
                           title: Column(

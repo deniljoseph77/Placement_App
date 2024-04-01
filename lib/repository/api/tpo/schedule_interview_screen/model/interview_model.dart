@@ -32,7 +32,7 @@ class Datum {
     int? id;
     Company? company;
     Application? application;
-    DateTime? dateTime;
+    String? dateTime;
     String? location;
 
     Datum({
@@ -47,7 +47,7 @@ class Datum {
         id: json["id"],
         company: json["company"] == null ? null : Company.fromJson(json["company"]),
         application: json["application"] == null ? null : Application.fromJson(json["application"]),
-        dateTime: json["date_time"] == null ? null : DateTime.parse(json["date_time"]),
+        dateTime: json["date_time"],
         location: json["location"],
     );
 
@@ -55,7 +55,7 @@ class Datum {
         "id": id,
         "company": company?.toJson(),
         "application": application?.toJson(),
-        "date_time": dateTime?.toIso8601String(),
+        "date_time": dateTime,
         "location": location,
     };
 }
@@ -100,7 +100,7 @@ class Job {
     String? location;
     String? salary;
     DateTime? postedDate;
-    DateTime? deadline;
+    String? deadline;
     int? postedBy;
 
     Job({
@@ -123,7 +123,7 @@ class Job {
         location: json["location"],
         salary: json["salary"],
         postedDate: json["posted_date"] == null ? null : DateTime.parse(json["posted_date"]),
-        deadline: json["deadline"] == null ? null : DateTime.parse(json["deadline"]),
+        deadline: json["deadline"],
         postedBy: json["posted_by"],
     );
 
@@ -135,7 +135,7 @@ class Job {
         "location": location,
         "salary": salary,
         "posted_date": postedDate?.toIso8601String(),
-        "deadline": deadline?.toIso8601String(),
+        "deadline": deadline,
         "posted_by": postedBy,
     };
 }

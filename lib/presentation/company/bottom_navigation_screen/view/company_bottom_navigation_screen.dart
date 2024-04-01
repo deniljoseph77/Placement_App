@@ -28,14 +28,14 @@ class _CompanyBottomNavigationScreenState
         backgroundColor: Colors.white,
         child: ListView(
           children: [
-            UserAccountsDrawerHeader(
-                decoration: BoxDecoration(color: Colors.blueGrey),
-                currentAccountPicture: CircleAvatar(
-                  child: Icon(Icons.person_rounded),
-                  backgroundColor: Colors.white,
-                ),
-                accountName: Text("Name", style: GLTextStyles.labeltxtBlk20),
-                accountEmail: Text("")),
+            // UserAccountsDrawerHeader(
+            //     decoration: BoxDecoration(color: Colors.blueGrey),
+            //     currentAccountPicture: CircleAvatar(
+            //       child: Icon(Icons.person_rounded),
+            //       backgroundColor: Colors.white,
+            //     ),
+            //     accountName: Text("Name", style: GLTextStyles.labeltxtBlk20),
+            //     accountEmail: Text("")),
             // ListTile(
             //   leading: Icon(Icons.person),
             //   title: Text("Profile",  style: GLTextStyles.labeltxtBlk18,),

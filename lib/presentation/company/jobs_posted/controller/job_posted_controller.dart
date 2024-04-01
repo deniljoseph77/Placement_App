@@ -16,7 +16,7 @@ class JobsPostedController extends ChangeNotifier {
     JobsPostedService.fetchJobsPosted().then((value) {
       log("JobsPostedService.fetchJobsPosted() started");
       if(value ["status"]== 1){
-        log("data -> ${value["data"]}");
+        log("data====================================== -> ${value["data"]}");
         postedJobsModel = PostedJobsModel.fromJson(value);
         isLoading = false;
       }else{

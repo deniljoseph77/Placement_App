@@ -34,12 +34,18 @@ class ApplicationRecivedController extends ChangeNotifier {
     var uId = id;
     var data = {"date_time": date, "location": location};
     ApplicationRecivedService.postInterview(data, uId).then((value) {
+      log("${value['msg']}");
       if (value["status"] == 1) {
         AppUtils.oneTimeSnackBar("Successfully Scheduled Interview",
             context: context);
       } else {
-        AppUtils.oneTimeSnackBar("Failed To Scheduled Interview",
-            context: context);
+        if (value['msg'] == null) {
+          AppUtils.oneTimeSnackBar("Failed To Scheduled Interview",
+              context: context);
+        } else {
+          var message = value['msg'];
+          AppUtils.oneTimeSnackBar(message, context: context);
+        }
       }
     });
   }

@@ -21,8 +21,12 @@ class StudentLoginController extends ChangeNotifier {
       if (value["status"] == 1) {
         log("token -> ${value["token"]}");
         storeLoginData(value);
+        storeUserToken(value["token"]);
         Navigator.pushAndRemoveUntil(
-            context, MaterialPageRoute(builder: (context) => StudentBottomNavigationScreen()), (route) => false);
+            context,
+            MaterialPageRoute(
+                builder: (context) => StudentBottomNavigationScreen()),
+            (route) => false);
       } else {
         var message = value["non_field_errors"].toString();
         AppUtils.oneTimeSnackBar(message, context: context);
@@ -41,7 +45,7 @@ class StudentLoginController extends ChangeNotifier {
   storeUserToken(resData) async {
     log("StoreUserToken");
     sharedPreferences = await SharedPreferences.getInstance();
-    String dataUser = json.encode(resData["token"]);
+    String dataUser = json.encode(resData);
     sharedPreferences.setString(AppConfig.token, dataUser);
   }
 

@@ -76,6 +76,12 @@ class _PostJobScreenState extends State<PostJobScreen> {
                       deadlineController.text,
                       context,
                     );
+                     positionController.clear();
+                      descriptionController.clear();
+                      requirementController.clear();
+                      locationController.clear();
+                      salaryController.clear();
+                      deadlineController.clear();
                   },
                   child: Text(
                     "DONE",
