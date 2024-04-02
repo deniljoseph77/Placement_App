@@ -186,7 +186,6 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
                       Provider.of<CompanyRegisterController>(context,
                               listen: false)
                           .onRegister(
-                            
                               context,
                               image,
                               usernameControl.text,
@@ -199,6 +198,16 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
                               yearControl.text,
                               webControl.text,
                               passControl.text);
+                      usernameControl.clear();
+                      nameControl.clear();
+                      descripControl.clear();
+                      industryControl.clear();
+                      phoneControl.clear();
+                      mailControl.clear();
+                      locControl.clear();
+                      yearControl.clear();
+                      webControl.clear();
+                      passControl.clear();
                     },
                     minWidth: width * .5,
                     height: width * .15,
@@ -217,8 +226,10 @@ class _CompanyRegistrationState extends State<CompanyRegistration> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => CompanyLoginScreen()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CompanyLoginScreen()));
                   },
                   child: RichText(
                       text: TextSpan(

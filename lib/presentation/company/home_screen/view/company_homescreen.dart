@@ -56,3 +56,4 @@ class _CompanyHomeScreenState extends State<CompanyHomeScreen> {
   }
 
 }
+
