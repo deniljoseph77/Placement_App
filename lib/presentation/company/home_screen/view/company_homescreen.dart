@@ -41,7 +41,8 @@ class _CompanyHomeScreenState extends State<CompanyHomeScreen> {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(18.0),
-          child: Consumer<HomeScreenController>(builder: (context, controller, _) {
+          child: Consumer<HomeScreenController
+            >(builder: (context, controller, _) {
             return ListView.builder(
                 itemCount: controller.studentApplicationModel.data?.length, itemBuilder: (context, index) {
               return StudentApplicationCard(name: controller.studentApplicationModel.data?[index].student,
