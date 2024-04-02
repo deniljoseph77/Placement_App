@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:placement_app/core/constants/color_constants.dart';
 import 'package:placement_app/presentation/tpo/bottom_navigation_screen/controller/bottom_navigation_controller.dart';
 import 'package:placement_app/presentation/tpo/manage_company_screen/view/manage_company_screen.dart';
-import 'package:placement_app/presentation/tpo/manage_request_screen/view/manage_request_screen.dart';
-import 'package:placement_app/presentation/tpo/tpo_manager_user_screen/view/tpo_manage_student.dart';
+import 'package:placement_app/presentation/tpo/manage_job_req_screen/view/manage_request_screen.dart';
+import 'package:placement_app/presentation/tpo/schedul_interview_screen/view/interview_scrn.dart';
+import 'package:placement_app/presentation/tpo/tpo_manager_student_screen/view/tpo_manage_student.dart';
 import 'package:provider/provider.dart';
 
 class TPOBottomNavigationScreen extends StatelessWidget {
@@ -16,17 +17,18 @@ class TPOBottomNavigationScreen extends StatelessWidget {
           builder: (context, controller, _) {
         return IndexedStack(
           index: controller.currentIndex,
-          children: const [
+          children:  [
             TPOManageStudentScreen(),
             TPOManageCompanyScreen(),
-            TPOManageRequestScreen()
+            TPOManageJobScreen(),
+            InterviewScheduleScreen()
           ],
         );
       }),
       bottomNavigationBar: Consumer<TPOBottomNavigationController>(
           builder: (context, controller, _) {
         return Container(
-          padding: const EdgeInsets.all(5),
+          padding:  EdgeInsets.all(5),
           margin: EdgeInsets.all(20),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15), color: Colors.blueGrey),
@@ -52,11 +54,13 @@ class TPOBottomNavigationScreen extends StatelessWidget {
                 BottomNavigationBarItem(
                     icon: Icon(Icons.person),
                     backgroundColor: ColorTheme.primary,
-                    label: "Manage User"),
+                    label: "Manage Student"),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.domain), label: "Manage Company"),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.contact_page), label: "Manage Request"),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.timer), label: "Interview"),
               ]),
         );
       }),
